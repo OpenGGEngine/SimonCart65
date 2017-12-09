@@ -20,9 +20,6 @@ import static com.opengg.core.io.input.keyboard.Key.*;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
-import com.opengg.core.physics.collision.AABB;
-import com.opengg.core.physics.collision.ColliderGroup;
-import com.opengg.core.physics.collision.ConvexHull;
 import com.opengg.core.render.light.Light;
 import com.opengg.core.render.texture.Texture;
 import com.opengg.core.render.texture.TextureManager;
@@ -30,12 +27,8 @@ import com.opengg.core.render.window.WindowInfo;
 import com.opengg.core.render.window.WindowOptions;
 import com.opengg.core.world.Skybox;
 import com.opengg.core.world.Terrain;
-import com.opengg.core.world.WorldLoader;
 import com.opengg.core.world.components.*;
-import com.opengg.core.world.components.physics.PhysicsComponent;
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import simoncart65.components.*;
 
 /**
@@ -91,9 +84,6 @@ public class SimonCart65 extends GGApplication{
         
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
         
-        PlayerCarComponent c = new PlayerCarComponent(ModelManager.getDefaultModel());
-        WorldEngine.getCurrent().attach(c);
-        
         Terrain t = Terrain.generate(Resource.getTextureData("map1.png"));
         
         TerrainComponent tc = new TerrainComponent(t);
@@ -105,23 +95,10 @@ public class SimonCart65 extends GGApplication{
         
         WorldEngine.getCurrent().attach(tc);
         
-        ArrayList<Vector3f> v2 = new ArrayList<>();
-        v2.add(new Vector3f(-1,-1,-1));
-        v2.add(new Vector3f(-1,1,-1));
-        v2.add(new Vector3f(-1,-1,1));
-        v2.add(new Vector3f(-1,1,1));
-        v2.add(new Vector3f(1,-1,-1));
-        v2.add(new Vector3f(1,1,-1));
-        v2.add(new Vector3f(1,-1,1));
-        v2.add(new Vector3f(1,1,1));
+        Checkpoint check = new Checkpoint();
+        check.setPositionOffset(new Vector3f(0,-30,-10));
         
-        ModelRenderComponent physmod = new ModelRenderComponent(ModelManager.getDefaultModel());
-        physmod.setPositionOffset(new Vector3f(0,60,0));
-        PhysicsComponent phys = new PhysicsComponent();
-        phys.addCollider(new ColliderGroup(new AABB( 3, 3, 3), new ConvexHull(v2)));
-        
-        //WorldEngine.getCurrent().attach(physmod.attach(phys));
-        //WorldEngine.getCurrent().attach(new Checkpoint());  
+        WorldEngine.getCurrent().attach(check);  
         
         
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
