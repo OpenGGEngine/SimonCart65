@@ -36,11 +36,12 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
             switch(action.name){
                 case "useitem":
                     System.out.println("sd");
-                    ModelRenderComponent mc = new ModelRenderComponent(this.currentitem.display);
-                    mc.setPositionOffset(new Vector3f(10,10,10));
-                    mc.setScaleOffset(new Vector3f(0.5f,0.5f,0.5f));
-                    System.out.println(mc.getModel());
-                    WorldEngine.getCurrent().attach(mc);
+                    ItemComponent it = new ItemComponent(this.currentitem);
+                    //ModelRenderComponent mc = new ModelRenderComponent(this.currentitem.display);
+                    it.setPositionOffset(new Vector3f(10,10,10));
+                    it.setScaleOffset(new Vector3f(0.5f,0.5f,0.5f));
+                   // System.out.println(it.getModel());
+                    WorldEngine.getCurrent().attach(it);
                  
                     WorldEngine.getCurrent().rescanRenderables();
                     break;
