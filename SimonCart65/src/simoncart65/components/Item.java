@@ -6,7 +6,11 @@
 package simoncart65.components;
 
 import com.opengg.core.model.Model;
+import com.opengg.core.model.ModelLoader;
 import com.opengg.core.render.texture.Texture;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,8 +20,12 @@ public class Item {
     public Texture t;
     public Model display;
     
-    public Item(Texture t,Model display){
+    public Item(Texture t,String modelpath){
         this.t = t;
-        this.display = display;
+        try {
+            this.display = ModelLoader.loadNewModel(modelpath);
+        } catch (IOException ex) {
+            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -7,6 +7,7 @@ package simoncart65.components;
 
 import com.opengg.core.engine.BindController;
 import com.opengg.core.engine.WorldEngine;
+import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.Model;
 import com.opengg.core.world.Action;
 import com.opengg.core.world.ActionType;
@@ -34,7 +35,14 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
-                    WorldEngine.getCurrent().attach(new ModelRenderComponent(this.currentitem.display));
+                    System.out.println("sd");
+                    ModelRenderComponent mc = new ModelRenderComponent(this.currentitem.display);
+                    mc.setPositionOffset(new Vector3f(10,10,10));
+                    mc.setScaleOffset(new Vector3f(0.5f,0.5f,0.5f));
+                    System.out.println(mc.getModel());
+                    WorldEngine.getCurrent().attach(mc);
+                 
+                    WorldEngine.getCurrent().rescanRenderables();
                     break;
             }
         }

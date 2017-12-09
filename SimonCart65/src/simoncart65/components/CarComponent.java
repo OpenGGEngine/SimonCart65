@@ -24,6 +24,7 @@ public class CarComponent extends Component {
     
     public CarComponent(Model m){
         mc = new ModelRenderComponent(m);
+        
         this.attach(mc);
     }
 }

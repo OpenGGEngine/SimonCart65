@@ -29,8 +29,8 @@ public class RaceManagerComponent extends Component{
     
     static Model banana;
     
-    public static Item[] items = new Item[]{new Item(Resource.getTexture("shell.png"),banana)
-    ,new Item(Resource.getTexture("fakebox.png"),banana),new Item(Resource.getTexture("banana.png"),banana),new Item(Resource.getTexture("mushroom.png"),banana)};
+    public static Item[] items = new Item[]{new Item(Resource.getTexture("shell.png"),"C:\\res\\banana\\banana.bmf")
+    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf")};
     GUITexture itemholder;
     GUITexture item;
     
@@ -44,7 +44,7 @@ public class RaceManagerComponent extends Component{
        item.setLayer(-1f);
         GUI.root.addItem("itemholder", itemholder);
          GUI.root.addItem("item", item);
-         banana = ModelLoader.loadNewModel("C:\\res\\banana\\banana.bmf");
+        
     }
     
     public void update(float delta){
