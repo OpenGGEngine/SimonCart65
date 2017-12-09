@@ -5,6 +5,7 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.model.Model;
 import com.opengg.core.render.texture.Texture;
 
 /**
@@ -13,8 +14,10 @@ import com.opengg.core.render.texture.Texture;
  */
 public class Item {
     public Texture t;
+    public Model display;
     
-    public Item(Texture t){
+    public Item(Texture t,Model display){
         this.t = t;
+        this.display = display;
     }
 }

@@ -17,7 +17,7 @@ public class CarComponent extends Component {
     
     public int raceposition;
     
-    public Item currentitem;
+    public Item currentitem = RaceManagerComponent.items[0];
     public ModelRenderComponent mc;
     
    
