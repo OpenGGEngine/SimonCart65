@@ -24,13 +24,22 @@ public class Checkpoint extends Component implements Triggerable{
     public Checkpoint(){
         zone = new Zone(new AABB(10,10,1));
         zone.addSubscriber(this);
+        zone.setSerializable(false);
         mrp = new ModelRenderComponent(Resource.getModel("flafg"));
+        mrp.setSerializable(false);
         this.attach(mrp);
         this.attach(zone);
     }
 
     @Override
     public void onTrigger(Trigger source, TriggerInfo info) {
-
+        Component comp = (Component) info.data;
+        if(comp instanceof CarComponent){
+            checkLap((CarComponent) comp);
+        }
+    }
+    
+    public void checkLap(CarComponent c){
+        
     }
 }

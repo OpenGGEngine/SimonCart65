@@ -29,14 +29,12 @@ import com.opengg.core.render.window.WindowInfo;
 import com.opengg.core.render.window.WindowOptions;
 import com.opengg.core.world.Skybox;
 import com.opengg.core.world.Terrain;
-import com.opengg.core.world.components.FreeFlyComponent;
-import com.opengg.core.world.components.LightComponent;
-import com.opengg.core.world.components.ModelRenderComponent;
-import com.opengg.core.world.components.TerrainComponent;
+import com.opengg.core.world.WorldLoader;
+import com.opengg.core.world.components.*;
 import com.opengg.core.world.components.physics.PhysicsComponent;
+import java.io.IOException;
 import java.util.ArrayList;
-import simoncart65.components.Checkpoint;
-import simoncart65.components.RaceManagerComponent;
+import simoncart65.components.*;
 
 /**
  *
@@ -76,16 +74,23 @@ public class SimonCart65 extends GGApplication{
         game.play();   
         AudioController.setGlobalGain(0f);
         
-        WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
+        WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
         
         FreeFlyComponent player = new FreeFlyComponent();
         player.use();
+        
+        WorldEngine.getCurrent().attach(player);
+        /*
+        WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
+        
+        PlayerCarComponent c = new PlayerCarComponent(ModelManager.getDefaultModel());
+        WorldEngine.getCurrent().attach(c);
         
         Terrain t = Terrain.generate(Resource.getTextureData("map1.png"));
         
         TerrainComponent tc = new TerrainComponent(t);
         tc.enableCollider();
-        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("testtrack.png"), false)));
+        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("blend.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("grass.png"), Resource.getTextureData("flower2.png"), Resource.getTextureData("dirt.png"), Resource.getTextureData("road.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
         tc.setScaleOffset(new Vector3f(400,60f, 400));
@@ -107,9 +112,9 @@ public class SimonCart65 extends GGApplication{
         PhysicsComponent phys = new PhysicsComponent();
         phys.addCollider(new ColliderGroup(new AABB( 3, 3, 3), new ConvexHull(v2)));
         
-        WorldEngine.getCurrent().attach(physmod.attach(phys));
-        WorldEngine.getCurrent().attach(new Checkpoint());  
-        WorldEngine.getCurrent().attach(player);
+        WorldEngine.getCurrent().attach(physmod.attach(phys));*/
+        //WorldEngine.getCurrent().attach(new Checkpoint());  
+        
         
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
         BindController.addBind(ControlType.KEYBOARD, "backward", KEY_S);
@@ -124,7 +129,11 @@ public class SimonCart65 extends GGApplication{
         BindController.addBind(ControlType.KEYBOARD, "useitem", KEY_SPACE);
         BindController.addBind(ControlType.KEYBOARD, "pause", KEY_ESCAPE);
 
-         mg = new RaceManagerComponent();
+        try {
+            mg = new RaceManagerComponent();
+        } catch (IOException ex) {
+            
+        }
         
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
@@ -143,7 +152,7 @@ public class SimonCart65 extends GGApplication{
 
     @Override
     public void update(float delta) {
-        mg.update(delta);
+        //mg.update(delta);
     }
     
 }

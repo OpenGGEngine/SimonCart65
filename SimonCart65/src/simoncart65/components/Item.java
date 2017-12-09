@@ -9,8 +9,7 @@ import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.render.texture.Texture;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -25,7 +24,7 @@ public class Item {
         try {
             this.display = ModelLoader.loadNewModel(modelpath);
         } catch (IOException ex) {
-            Logger.getLogger(Item.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
 }

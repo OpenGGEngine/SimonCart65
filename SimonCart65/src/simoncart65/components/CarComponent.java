@@ -14,7 +14,8 @@ import com.opengg.core.world.components.ModelRenderComponent;
  * @author Warren
  */
 public class CarComponent extends Component {
-    
+    public boolean last = false;
+    public boolean reallast = false;
     public int raceposition;
     
     public Item currentitem = RaceManagerComponent.items[0];

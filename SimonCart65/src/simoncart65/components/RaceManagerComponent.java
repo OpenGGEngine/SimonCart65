@@ -39,11 +39,11 @@ public class RaceManagerComponent extends Component{
        
        // TextureManager.loadTexture("itemholder");
         
-        itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.23f,0.7f), new Vector2f(0.3f,0.3f));
-        item = new GUITexture(items[0].t,new Vector2f(-0.185f,0.75f), new Vector2f(0.20f,0.20f));
-       item.setLayer(-1f);
+       itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.23f,0.7f), new Vector2f(0.3f,0.3f));
+         item = new GUITexture(items[0].t,new Vector2f(-0.185f,0.75f), new Vector2f(0.20f,0.20f));
+        item.setLayer(-1f);
         GUI.root.addItem("itemholder", itemholder);
-         GUI.root.addItem("item", item);
+        GUI.root.addItem("item", item);
         
     }
     
