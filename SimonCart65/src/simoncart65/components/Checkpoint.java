@@ -5,6 +5,7 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.engine.Resource;
 import com.opengg.core.physics.collision.AABB;
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.ModelRenderComponent;
@@ -21,13 +22,15 @@ public class Checkpoint extends Component implements Triggerable{
     Zone zone;
     ModelRenderComponent mrp;
     public Checkpoint(){
-        zone = new Zone(new AABB(100,100,10));
+        zone = new Zone(new AABB(10,10,1));
         zone.addSubscriber(this);
-        mrp = new ModelRenderComponent();
+        mrp = new ModelRenderComponent(Resource.getModel("flafg"));
+        this.attach(mrp);
+        this.attach(zone);
     }
 
     @Override
     public void onTrigger(Trigger source, TriggerInfo info) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }
