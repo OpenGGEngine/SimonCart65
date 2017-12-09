@@ -18,6 +18,7 @@ import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.io.ControlType;
 import static com.opengg.core.io.input.keyboard.Key.*;
 import com.opengg.core.math.Vector3f;
+import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
 import com.opengg.core.physics.collision.AABB;
 import com.opengg.core.physics.collision.ColliderGroup;
@@ -32,6 +33,7 @@ import com.opengg.core.world.Terrain;
 import com.opengg.core.world.WorldLoader;
 import com.opengg.core.world.components.*;
 import com.opengg.core.world.components.physics.PhysicsComponent;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import simoncart65.components.*;
@@ -51,6 +53,7 @@ public class SimonCart65 extends GGApplication{
         winfo.height = 1080;
         winfo.displaymode = WindowOptions.WINDOWED;
         winfo.name = "Simon Cart 65";
+        winfo.vsync = true;
         SimonCart65 sc65 = new SimonCart65();
         sc65.applicationID = 69420;
         sc65.applicationName = "Simon Cart 65";
@@ -74,13 +77,18 @@ public class SimonCart65 extends GGApplication{
         game.play();   
         AudioController.setGlobalGain(0f);
         
-        WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
+        //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
+
+        PlayerCarComponent pcc;
+        try {
+            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            WorldEngine.getCurrent().attach(pcc);
+        } catch (IOException ex) {
+            System.out.println("stop");
+        }
         
-        FreeFlyComponent player = new FreeFlyComponent();
-        player.use();
         
-        WorldEngine.getCurrent().attach(player);
-        /*
+        
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
         
         PlayerCarComponent c = new PlayerCarComponent(ModelManager.getDefaultModel());
@@ -89,7 +97,7 @@ public class SimonCart65 extends GGApplication{
         Terrain t = Terrain.generate(Resource.getTextureData("map1.png"));
         
         TerrainComponent tc = new TerrainComponent(t);
-        tc.enableCollider();
+        //tc.enableCollider();
         tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("blend.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("grass.png"), Resource.getTextureData("flower2.png"), Resource.getTextureData("dirt.png"), Resource.getTextureData("road.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
@@ -112,7 +120,7 @@ public class SimonCart65 extends GGApplication{
         PhysicsComponent phys = new PhysicsComponent();
         phys.addCollider(new ColliderGroup(new AABB( 3, 3, 3), new ConvexHull(v2)));
         
-        WorldEngine.getCurrent().attach(physmod.attach(phys));*/
+        //WorldEngine.getCurrent().attach(physmod.attach(phys));
         //WorldEngine.getCurrent().attach(new Checkpoint());  
         
         
