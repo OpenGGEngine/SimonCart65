@@ -13,9 +13,12 @@ import com.opengg.core.world.components.ModelRenderComponent;
  *
  * @author Warren
  */
-public class CarComponent extends Component{
-    
+public class CarComponent extends Component {
+    public int raceposition;
+    public Item currentitem;
     public ModelRenderComponent mc;
+    
+   
     
     public CarComponent(Model m){
         mc = new ModelRenderComponent(m);
