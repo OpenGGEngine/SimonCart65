@@ -21,20 +21,31 @@ import java.util.TreeSet;
 public class RaceManagerComponent extends Component{
     
     public static TreeSet<CarComponent> racers = new TreeSet<>();
+    
+    Item[] items = new Item[]{new Item(Resource.getTexture("shell.png"))
+    ,new Item(Resource.getTexture("fakebox.png")),new Item(Resource.getTexture("banana.png"))};
     GUITexture itemholder;
     GUITexture item;
+    
+    int pointer = 0;
     public RaceManagerComponent(){
        
        // TextureManager.loadTexture("itemholder");
         
         itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.23f,0.7f), new Vector2f(0.3f,0.3f));
-        item = new GUITexture( Resource.getTexture("shell.png"),new Vector2f(-0.185f,0.75f), new Vector2f(0.20f,0.20f));
+        item = new GUITexture(items[0].t,new Vector2f(-0.185f,0.75f), new Vector2f(0.20f,0.20f));
        item.setLayer(-1f);
         GUI.root.addItem("itemholder", itemholder);
          GUI.root.addItem("item", item);
     }
     
-    public void update(){
+    public void update(float delta){
+        item.setTexture(items[pointer/20].t);
+       
+        pointer++;
         
+        if(pointer > (items.length*20)  -1){
+            pointer = 0;
+        }
     }
 }

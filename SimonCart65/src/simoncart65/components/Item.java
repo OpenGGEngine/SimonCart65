@@ -5,10 +5,16 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.render.texture.Texture;
+
 /**
  *
  * @author Warren
  */
 public class Item {
+    public Texture t;
     
+    public Item(Texture t){
+        this.t = t;
+    }
 }
