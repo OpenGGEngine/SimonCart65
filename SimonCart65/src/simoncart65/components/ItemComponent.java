@@ -26,7 +26,7 @@ public class ItemComponent extends Component{
         this.m = new ModelRenderComponent(item.display);
         this.attach(m);
         
-        pc.addCollider(new ColliderGroup(new AABB(10,10,10), new ConvexHull(item.display.ch)));
+        pc.addCollider(new ColliderGroup(new AABB(10,10,3), new ConvexHull(item.display.ch)));
         this.attach(pc);
     }
 }
