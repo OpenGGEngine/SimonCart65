@@ -36,13 +36,14 @@ import com.opengg.core.world.components.TerrainComponent;
 import com.opengg.core.world.components.physics.PhysicsComponent;
 import java.util.ArrayList;
 import simoncart65.components.Checkpoint;
+import simoncart65.components.RaceManagerComponent;
 
 /**
  *
  * @author Javier
  */
 public class SimonCart65 extends GGApplication{
-
+    RaceManagerComponent mg;
     /**
      * @param args the command line arguments
      */
@@ -123,6 +124,7 @@ public class SimonCart65 extends GGApplication{
         BindController.addBind(ControlType.KEYBOARD, "useitem", KEY_SPACE);
         BindController.addBind(ControlType.KEYBOARD, "pause", KEY_ESCAPE);
 
+         mg = new RaceManagerComponent();
         
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
@@ -141,7 +143,7 @@ public class SimonCart65 extends GGApplication{
 
     @Override
     public void update(float delta) {
-    
+        mg.update(delta);
     }
     
 }
