@@ -58,6 +58,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     GGFont  font = Resource.getFont("test", "test.png");
     GUIText g = new GUIText(new Text("1st" ,new Vector2f(), 3.2f, 0.5f, false),font,new Vector2f(0.04f,-0.05f));
+    GUIText spedometer = new GUIText(new Text("Quickness" ,new Vector2f(), 0.9f, 0.5f, false),font,new Vector2f(0.8f,-0.8f));
     
      GUIText lapcounter = new GUIText(new Text("1/3 Lap" ,new Vector2f(), 1.2f, 0.5f, false),font,new Vector2f(0.8f,-0.05f));
    
@@ -89,6 +90,8 @@ public class RaceManagerComponent extends Component implements Actionable{
              sp = new GUITexture(bobomb,new Vector2f(-0.94f,-0.1f), new Vector2f(0.25f,0.25f));
               tp = new GUITexture(stalin,new Vector2f(-0.94f,-0.5f), new Vector2f(0.25f,0.25f));
                frp = new GUITexture(simon,new Vector2f(-0.94f,-0.9f), new Vector2f(0.25f,0.25f));
+               
+          
               
                fp.setLayer(-1);
                  sp.setLayer(-1);
@@ -108,14 +111,16 @@ public class RaceManagerComponent extends Component implements Actionable{
                sidebar.addItem("frp", frp);
                sidebar.addItem("place", g);
                sidebar.addItem("lapcounter", lapcounter);
+               sidebar.addItem("spedometer", spedometer);
         item.setLayer(-1f);
         GUI.root.addItem("itemholder", itemholder);
         GUI.root.addItem("sidebar", sidebar);
         GUI.root.addItem("item", item);
+       
         
-        itemholder.enabled = false;
-        sidebar.enabled = false;
-        item.enabled = false;
+//        itemholder.enabled = false;
+//        sidebar.enabled = false;
+//        item.enabled = false;
         BindController.addController(uc);
         this.attach(uc);
     
@@ -124,7 +129,10 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     @Override
     public void update(float delta){
+       
         racers = new TreeSet<>(racers);
+        ((GUIText)sidebar.getItem("spedometer")).setText("Quickness: "+(int)Math.abs(p.p.getEntity().velocity.x()) +" speeds");
+        
         p.raceposition = racers.tailSet(p).size();
         System.out.println(racers.size());
         System.out.println(p.raceposition);

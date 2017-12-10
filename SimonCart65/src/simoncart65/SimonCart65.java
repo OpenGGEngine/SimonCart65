@@ -72,7 +72,7 @@ public class SimonCart65 extends GGApplication{
         game.shuffle();
         game.play();   
         AudioController.setGlobalGain(0f);
-        mm = new MainMenuComponent();
+     //   mm = new MainMenuComponent();
         //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
 
         try {
@@ -187,8 +187,8 @@ public class SimonCart65 extends GGApplication{
     float full = 0;
     @Override
     public void update(float delta) {
-        //mg.update(delta);
-        mm.update(delta);
+        mg.update(delta);
+      //  mm.update(delta);
     }
     
 }
