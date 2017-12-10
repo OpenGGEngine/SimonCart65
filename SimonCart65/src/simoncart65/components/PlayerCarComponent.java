@@ -56,7 +56,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
-              
+                    useItem();
                     break;
                 case "forward":
                     control.z -= 1;
@@ -92,7 +92,6 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         }
     }
     public void useItem(){
-        this.setPositionOffset(this.getPosition().add(new Vector3f(0,10f,0)));
                     if(this.currentitem!=null){
                     ItemComponent im = new ItemComponent(this.currentitem);
            

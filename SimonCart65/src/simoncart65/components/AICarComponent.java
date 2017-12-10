@@ -25,7 +25,6 @@ public class AICarComponent extends CarComponent{
         follow = new AIFollow();
         follow.c = this;
         WorldEngine.getCurrent().attach(follow);
-        follow.attach(new ModelRenderComponent(ModelManager.getDefaultModel()));
     }
     
     @Override

@@ -33,6 +33,9 @@ public class CarSpawnerViewModel extends ViewModel{
         user.name = "Is user controlled";
         user.autoupdate = true;
         user.value = false;
+        
+        getElements().add(model);
+        getElements().add(user);
     }
 
     @Override
@@ -64,7 +67,7 @@ public class CarSpawnerViewModel extends ViewModel{
 
     @Override
     public void updateViews() {
-        
+        this.getByName("user").value = ((CarSpawner)component).user;
     }
     
 }

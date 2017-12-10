@@ -156,41 +156,36 @@ public class SimonCart65 extends GGApplication {
         BindController.addBind(ControlType.KEYBOARD, "lookdown", KEY_DOWN);
         BindController.addBind(ControlType.KEYBOARD, "useitem", KEY_SPACE);
         BindController.addBind(ControlType.KEYBOARD, "pause", KEY_ESCAPE);
+        BindController.addBind(ControlType.KEYBOARD, "meme", KEY_G);
 
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
-                Resource.getTexturePath("skybox\\majestic_ft.png"),
-                Resource.getTexturePath("skybox\\majestic_bk.png"),
-                Resource.getTexturePath("skybox\\majestic_up.png"),
-                Resource.getTexturePath("skybox\\majestic_dn.png"),
-                Resource.getTexturePath("skybox\\majestic_rt.png"),
-                Resource.getTexturePath("skybox\\majestic_lf.png")), 1500f));
-
-        PlayerCarComponent pcc = null;
-        try {
-            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-            pcc.setPositionOffset(Checkpoint.getById(0).getPosition());
-            ((ConvexHull)pcc.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
-            RaceManagerComponent.racers.add(pcc);
-            WorldEngine.getCurrent().attach(pcc);
-        } catch (IOException ex) {
-            System.out.println("stop");
-        }
-        RaceManagerComponent.p = pcc;
+                Resource.getTexturePath("skybox\\sky_ft.png"),
+                Resource.getTexturePath("skybox\\sky_bk.png"),
+                Resource.getTexturePath("skybox\\sky_up.png"),
+                Resource.getTexturePath("skybox\\sky_dn.png"),
+                Resource.getTexturePath("skybox\\sky_rt.png"),
+                Resource.getTexturePath("skybox\\sky_lf.png")), 1500f));
 
         
         generateNodesFromCheckpoints(Checkpoint.getOrdered());
         mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
-        try {
-            AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-            ((ConvexHull)car.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
-            car.charge = 10;
-            car.setPositionOffset(Checkpoint.getById(0).getPosition().add(new Vector3f(20,0,0)));
-            RaceManagerComponent.racers.add(car);
-            WorldEngine.getCurrent().attach(car);
-        } catch (Exception e) {
-            System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
+
+        for(Component c : WorldEngine.getCurrent().getAll()){
+            if(c instanceof CarSpawner)
+                    ((CarSpawner)c).spawn();
+                
         }
+        
+        try{
+             PlayerCarComponent pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            pcc.setPositionOffset(Checkpoint.getById(0).getPosition());
+            ((ConvexHull)pcc.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
+            RaceManagerComponent.racers.add(pcc);
+WorldEngine.getCurrent().attach(pcc);
+RaceManagerComponent.p = pcc;
+        }catch(Exception e){}
+        
         ItemBoxSpawner i = null;
         try {
             i = new ItemBoxSpawner(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));

@@ -5,12 +5,14 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.util.GGInputStream;
 import com.opengg.core.util.GGOutputStream;
 import com.opengg.core.world.components.Component;
 import java.io.IOException;
+import static simoncart65.SimonCart65.sc65;
 
 /**
  *
@@ -45,10 +47,19 @@ public class CarSpawner extends Component{
     }
     
     public void spawn(){
-        if(user){
-           PlayerCarComponent c = new PlayerCarComponent(model);
-        }else{
-            CarComponent c = new CarComponent(model);
-        }
+        AICarComponent c = new AICarComponent(model);
+        c.charge = 10;
+        c.setPositionOffset(this.getPosition());
+        RaceManagerComponent.racers.add(c);
+        WorldEngine.getCurrent().attach(c);
+    }
+    
+    public void spawnOther()
+    {
+        PlayerCarComponent c = new PlayerCarComponent(model);
+           RaceManagerComponent.racers.add(c);
+           c.setPositionOffset(this.getPosition());
+           WorldEngine.getCurrent().attach(c);
+           RaceManagerComponent.p = c;
     }
 }
