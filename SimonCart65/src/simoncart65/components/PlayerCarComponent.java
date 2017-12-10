@@ -25,26 +25,27 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
     Vector3fm controlrot = new Vector3fm();
     UserControlComponent uc = new UserControlComponent();
     CameraComponent c;
-    float forcelength = 10;
-    float turnspeed = 10;
+    float forcelength = 5;
+    float turnspeed = 40;
     
     public PlayerCarComponent(Model m) {
         super(m);
         this.attach(uc);
         BindController.addController(uc);
         c = new CameraComponent();
-        c.setPositionOffset(new Vector3f(-5,2,0));
+        c.setPositionOffset(new Vector3f(0,5,10));
         c.use();
         this.attach(c);
     }
 
     @Override
     public void update(float delta){
-        //this.
-        this.setRotationOffset(this.getRotation().multiply(new Quaternionf(new Vector3f(0,control.x,0).multiply(delta).multiply(turnspeed))));
-
+        super.update(delta);
+        this.setRotationOffset(this.getRotation().multiply(new Quaternionf(new Vector3f(0,-control.x,0).multiply(delta).multiply(turnspeed))));
         f.force = getRotation().transform(new Vector3f(control).multiply(forcelength));
-        System.out.println(f.force);
+        System.out.println("");
+        System.out.println(this.currentcheck);
+        System.out.println(this.lap);
     }
     
     @Override
@@ -61,10 +62,10 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
                     control.z += 1;
                     break;
                 case "left":
-                    control.x += 1;
+                    control.x -= 1;
                     break;
                 case "right":
-                    control.x -= 1;
+                    control.x += 1;
                     break;               
             }
         }if(action.type == ActionType.RELEASE){
@@ -79,10 +80,10 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
                     control.z -= 1;
                     break;
                 case "left":
-                    control.x -= 1;
+                    control.x += 1;
                     break;
                 case "right":
-                    control.x += 1;
+                    control.x -= 1;
                     break;               
             }
         }

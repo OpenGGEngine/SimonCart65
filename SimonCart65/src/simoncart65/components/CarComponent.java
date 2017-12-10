@@ -21,7 +21,10 @@ import com.opengg.core.world.components.physics.PhysicsComponent;
 public class CarComponent extends Component {
     public boolean last = false;
     public int lap = 0;
+    public int currentcheck = 0;
     public int raceposition;
+    public boolean dtock = false;
+    public boolean tick = false;
     
     public Item currentitem = RaceManagerComponent.items[0];
     public ModelRenderComponent mc;
@@ -36,5 +39,17 @@ public class CarComponent extends Component {
         
         this.attach(p);
         this.attach(mc);
+    }
+    
+    @Override
+    public void update(float delta){
+        if(!tick){
+            last = false;
+        }
+        if(tick){
+            tick = false;
+        }
+        
+        
     }
 }

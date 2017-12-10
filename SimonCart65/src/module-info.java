@@ -6,4 +6,5 @@
 module SimonCart {
     requires com.opengg.core;
     requires com.opengg.math;
+    requires java.desktop;
 }

@@ -5,61 +5,44 @@
  */
 package simoncart65.components;
 
-import com.opengg.core.engine.Resource;
-import com.opengg.core.model.ModelLoader;
+import com.opengg.core.engine.OpenGG;
 import com.opengg.core.physics.collision.AABB;
-import com.opengg.core.util.GGInputStream;
-import com.opengg.core.util.GGOutputStream;
 import com.opengg.core.world.components.Component;
-import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.Zone;
 import com.opengg.core.world.components.triggers.Trigger;
 import com.opengg.core.world.components.triggers.TriggerInfo;
 import com.opengg.core.world.components.triggers.Triggerable;
-import java.io.IOException;
 
 /**
  *
  * @author Javier
  */
 public class Checkpoint extends Component implements Triggerable{
+    float radius = 5;
     Zone zone;
-    ModelRenderComponent mrp;
+    int cid;
+    
     public Checkpoint(){
-        zone = new Zone(new AABB(10,10,1));
+        this(5, 1);
+    }
+    
+    public Checkpoint(float rad, int id){
+        radius = rad;
+        zone = new Zone(new AABB(rad,rad,rad));
         zone.addSubscriber(this);
-        zone.setSerializable(false);
-        mrp = new ModelRenderComponent(Resource.getModel("flafg"));
-        mrp.setSerializable(false);
-        this.attach(mrp);
         this.attach(zone);
+        this.cid = id;
     }
 
     @Override
     public void onTrigger(Trigger source, TriggerInfo info) {
         Component comp = (Component) info.data;
         if(comp instanceof CarComponent){
-            checkLap((CarComponent) comp);
+            updateCar((CarComponent) comp);
         }
     }
     
-    public void checkLap(CarComponent c){
-        if(!c.last){
-            c.lap++;
-            c.last = true;
-        }
-    }
-    
-    @Override
-    public void serialize(GGOutputStream out) throws IOException{
-        super.serialize(out);
-        out.write(mrp.getName());
-    }
-    
-    
-    @Override
-    public void deserialize(GGInputStream in) throws IOException{
-        super.deserialize(in);
-        mrp = new ModelRenderComponent(ModelLoader.loadModel(in.readString()));
+    public void updateCar(CarComponent c){
+        OpenGG.asyncExec(()->{c.currentcheck = cid;});
     }
 }

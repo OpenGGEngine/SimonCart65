@@ -56,6 +56,8 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     Sound s;
     
+    public int checkpoints = 0;
+    
     UserControlComponent uc = new UserControlComponent();
     int pointer = 0;
     int pointer2 = 0;

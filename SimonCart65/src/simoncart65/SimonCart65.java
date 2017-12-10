@@ -36,7 +36,7 @@ import simoncart65.components.*;
  * @author Javier
  */
 public class SimonCart65 extends GGApplication{
-    RaceManagerComponent mg;
+    public RaceManagerComponent mg;
     /**
      * @param args the command line arguments
      */
@@ -95,11 +95,30 @@ public class SimonCart65 extends GGApplication{
         
         WorldEngine.getCurrent().attach(tc);
         
-        Checkpoint check = new Checkpoint();
-        check.setPositionOffset(new Vector3f(0,-30,-10));
-        
+        FinishLine check = new FinishLine();
+        check.setPositionOffset(new Vector3f(0,-30,0));
         WorldEngine.getCurrent().attach(check);  
         
+        Checkpoint c1 = new Checkpoint(5,1);
+        c1.setPositionOffset(new Vector3f(0,-30,-20));
+        ModelRenderComponent cm1 = new ModelRenderComponent(ModelManager.getDefaultModel());
+        cm1.setPositionOffset(c1.getPosition());
+        WorldEngine.getCurrent().attach(c1);  
+        WorldEngine.getCurrent().attach(cm1); 
+        
+        Checkpoint c2 = new Checkpoint(5,2);
+        c2.setPositionOffset(new Vector3f(-20,-30,-20));
+        ModelRenderComponent cm2 = new ModelRenderComponent(ModelManager.getDefaultModel());
+        cm2.setPositionOffset(c2.getPosition());
+        WorldEngine.getCurrent().attach(c2);  
+        WorldEngine.getCurrent().attach(cm2); 
+        
+        Checkpoint c3 = new Checkpoint(5,3);
+        c3.setPositionOffset(new Vector3f(-20,-30,0));
+        ModelRenderComponent cm3 = new ModelRenderComponent(ModelManager.getDefaultModel());
+        cm3.setPositionOffset(c3.getPosition());
+        WorldEngine.getCurrent().attach(c3);  
+        WorldEngine.getCurrent().attach(cm3); 
         
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
         BindController.addBind(ControlType.KEYBOARD, "backward", KEY_S);
@@ -116,6 +135,7 @@ public class SimonCart65 extends GGApplication{
 
         try {
             mg = new RaceManagerComponent();
+            mg.checkpoints = 4;
         } catch (IOException ex) {
             
         }
