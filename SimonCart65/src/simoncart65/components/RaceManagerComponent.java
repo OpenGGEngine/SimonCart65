@@ -58,6 +58,7 @@ public class RaceManagerComponent extends Component implements Actionable{
      GUIText lapcounter = new GUIText(new Text("1/3 Lap" ,new Vector2f(), 1.2f, 0.5f, false),font,new Vector2f(0.8f,-0.05f));
     
     Sound s;
+    Sound itemuse;
     
     public int checkpoints = 0;
     
@@ -68,6 +69,7 @@ public class RaceManagerComponent extends Component implements Actionable{
        
        // TextureManager.loadTexture("itemholder");
         s =new Sound(Resource.getSoundData("item.ogg"));
+        itemuse = new Sound(Resource.getSoundData("itemuse.ogg"));
        itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.21f,0.7f), new Vector2f(0.3f,0.3f));
          item = new GUITexture(items[0].t,new Vector2f(-0.165f,0.75f), new Vector2f(0.20f,0.20f));
          
@@ -108,6 +110,15 @@ public class RaceManagerComponent extends Component implements Actionable{
     }
     
     public void update(float delta){
+        if(p.raceposition ==1){
+              g.setText("1st");
+        }else if(p.raceposition ==2){
+             g.setText("2nd");
+        }else if(p.raceposition ==3){
+            g.setText("3rd");
+        }else{
+            g.setText(p.raceposition + "th");
+        }
         item.setTexture(items[pointer/20].t);
        
         if(pointer2 !=0){
@@ -133,6 +144,7 @@ public class RaceManagerComponent extends Component implements Actionable{
                     pointer2 = 250 + (int)(Math.random()*100);
                     item.enabled = true;
                     }else{
+                        itemuse.play();
                         p.currentitem = null;
                         item.enabled = false;
                     }

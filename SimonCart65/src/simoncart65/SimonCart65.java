@@ -72,9 +72,9 @@ public class SimonCart65 extends GGApplication{
         
         //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
 
-        PlayerCarComponent pcc;
+        PlayerCarComponent pcc = null;
         try {
-            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\GreenShell\\GreenShell.bmf"));
             WorldEngine.getCurrent().attach(pcc);
         } catch (IOException ex) {
             System.out.println("stop");
@@ -139,7 +139,7 @@ public class SimonCart65 extends GGApplication{
         } catch (IOException ex) {
             
         }
-        
+        RaceManagerComponent.p =pcc;
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
                 Resource.getTexturePath("skybox\\majestic_ft.png"),
@@ -157,7 +157,7 @@ public class SimonCart65 extends GGApplication{
 
     @Override
     public void update(float delta) {
-        //mg.update(delta);
+        mg.update(delta);
     }
     
 }
