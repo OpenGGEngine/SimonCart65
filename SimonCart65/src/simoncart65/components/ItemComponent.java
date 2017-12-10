@@ -29,4 +29,5 @@ public class ItemComponent extends Component{
         pc.addCollider(new ColliderGroup(new AABB(10,10,3), new ConvexHull(item.display.ch)));
         this.attach(pc);
     }
+    
 }
