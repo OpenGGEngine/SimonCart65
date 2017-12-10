@@ -17,7 +17,6 @@ import com.opengg.core.engine.Resource;
 import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.io.ControlType;
 import static com.opengg.core.io.input.keyboard.Key.*;
-import com.opengg.core.math.Vector2f;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
@@ -75,15 +74,10 @@ public class SimonCart65 extends GGApplication{
         
         //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
 
-        PlayerCarComponent pcc = null;
         try {
-            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-            pcc.setPositionOffset(new Vector3f(0,-30,10));
-            WorldEngine.getCurrent().attach(pcc); 
-        } catch (IOException ex) {
-            System.out.println("stop");
-        }
-        RaceManagerComponent.p = pcc;
+            mg = new RaceManagerComponent();
+            mg.checkpoints = 4;
+        } catch (IOException ex) {}
         
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
         
@@ -139,11 +133,6 @@ public class SimonCart65 extends GGApplication{
         BindController.addBind(ControlType.KEYBOARD, "useitem", KEY_SPACE);
         BindController.addBind(ControlType.KEYBOARD, "pause", KEY_ESCAPE);
 
-        try {
-            mg = new RaceManagerComponent();
-            mg.checkpoints = 4;
-        } catch (IOException ex) {}
-        RaceManagerComponent.p =pcc;
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
                 Resource.getTexturePath("skybox\\majestic_ft.png"),
@@ -153,12 +142,24 @@ public class SimonCart65 extends GGApplication{
                 Resource.getTexturePath("skybox\\majestic_rt.png"),
                 Resource.getTexturePath("skybox\\majestic_lf.png")), 1500f));
         
+        PlayerCarComponent pcc = null;
+        try {
+            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            pcc.setPositionOffset(new Vector3f(0,-30,10));
+            RaceManagerComponent.racers.add(pcc);
+            WorldEngine.getCurrent().attach(pcc); 
+        } catch (IOException ex) {
+            System.out.println("stop");
+        }
+        RaceManagerComponent.p = pcc;
+        
         generateNodesFromCheckpoints();
         mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
         try{
             AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
 
             car.setPositionOffset(new Vector3f(0,-30,0));
+            RaceManagerComponent.racers.add(car);
             WorldEngine.getCurrent().attach(car);
         }catch(Exception e){
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");

@@ -13,12 +13,13 @@ import com.opengg.core.physics.collision.ConvexHull;
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.physics.PhysicsComponent;
+import static simoncart65.SimonCart65.sc65;
 
 /**
  *
  * @author Warren
  */
-public class CarComponent extends Component {
+public class CarComponent extends Component implements Comparable{
     public boolean last = false;
     public int lap = 0;
     public int currentcheck = 0;
@@ -52,5 +53,22 @@ public class CarComponent extends Component {
         }
         
         
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        CarComponent c = (CarComponent) o;
+        if(c.lap < lap) return 1;
+        else if(c.lap > lap) return -1;
+        else{
+            if(c.currentcheck<currentcheck) return 1;
+            else if(c.currentcheck>currentcheck) return -1;
+            else{
+                Checkpoint cp = Checkpoint.getById(currentcheck==sc65.mg.checkpoints-1?0:currentcheck+1);
+                if(c.getPosition().subtract(cp.getPosition()).length()>
+                        getPosition().subtract(cp.getPosition()).length()) return 1;
+                return -1;
+            }
+        }
     }
 }

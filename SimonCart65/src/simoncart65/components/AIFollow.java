@@ -30,9 +30,9 @@ public class AIFollow extends Component{
             speed += delta*speedmult*diff.length();
         }
  
-       
+       if(currentpos > 1) currentpos  = 0;
         if(speed < 1) speed = 1f;
-        currentpos += speed*delta*0.01f;
+        currentpos += speed*delta*0.01f*(100/sc65.mg.path.getLength());
         Vector2f npos = sc65.mg.path.getPoint(currentpos);
         this.setPositionOffset(new Vector3f(npos.x,-30,npos.y));
     }

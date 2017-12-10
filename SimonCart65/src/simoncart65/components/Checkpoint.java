@@ -6,6 +6,7 @@
 package simoncart65.components;
 
 import com.opengg.core.engine.OpenGG;
+import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.physics.collision.AABB;
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.Zone;
@@ -31,6 +32,7 @@ public class Checkpoint extends Component implements Triggerable{
         radius = rad;
         zone = new Zone(new AABB(rad,rad,rad));
         zone.addSubscriber(this);
+        zone.setSerializable(false);
         this.attach(zone);
         this.cid = id;
     }
@@ -44,7 +46,21 @@ public class Checkpoint extends Component implements Triggerable{
     }
     
     public void updateCar(CarComponent c){
-        if(c.currentcheck == cid-1 || (cid==0 && c.currentcheck == ((SimonCart65)OpenGG.getApp()).mg.checkpoints-1))
+        if(c.currentcheck == cid-1 || (cid==0 && c.currentcheck == ((SimonCart65)OpenGG.getApp()).mg.checkpoints-1)){
             OpenGG.asyncExec(()->{c.currentcheck = cid;});
+        }
     }
+    
+    public static Checkpoint getById(int id){
+        for(Component c : WorldEngine.getCurrent().getAll()){
+            if(c instanceof Checkpoint){
+                if(((Checkpoint)c).cid == id) return (Checkpoint) c;
+            }
+        }
+        return null;
+    }
+    
+    //public static List<Checkpoint> getOrdered(){
+        //List<Checkpoint> checks
+    //}
 }

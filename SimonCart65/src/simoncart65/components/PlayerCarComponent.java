@@ -26,7 +26,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
     Vector3fm controlrot = new Vector3fm();
     UserControlComponent uc = new UserControlComponent();
     CameraComponent c;
-    float forcelength = 5;
+    float forcelength = 20;
     float turnspeed = 40;
     
     public PlayerCarComponent(Model m) {
