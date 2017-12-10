@@ -16,7 +16,7 @@ import com.opengg.core.render.texture.Texture;
 public class ShellItem extends Item{
     
     public ShellItem(Texture t, String modelpath) {
-        super(t, modelpath,new Vector3f(0.3f));
+        super(t, modelpath,new Vector3f(0.5f));
     }
     
     @Override

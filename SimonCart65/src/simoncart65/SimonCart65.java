@@ -100,11 +100,11 @@ public class SimonCart65 extends GGApplication {
 
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0, 20, 200), new Vector3f(1, 1, 1), 100000, 0)));
 
-        Terrain t = Terrain.generate(Resource.getTextureData("map1.png"));
+        Terrain t = Terrain.generate(Resource.getTextureData("rainbowheight.png"));
 
         tc = new TerrainComponent(t);
         tc.enableCollider();
-        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("blend1.png"), false)));
+        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("rainbowblend.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("black.png"), Resource.getTextureData("rainbowroad.png"), Resource.getTextureData("black.png"), Resource.getTextureData("black.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
         tc.setScaleOffset(new Vector3f(400, 60f, 400));
@@ -229,7 +229,7 @@ public class SimonCart65 extends GGApplication {
         } else {
             GUI.root.getItem("itemholder").enabled = true;
             GUI.root.getItem("sidebar").enabled = true;
-            GUI.root.getItem("item").enabled = true;
+         
             GUI.root.getItem("characterselect").enabled = false;
             mg.enabled = true;
             mm.enabled = false;

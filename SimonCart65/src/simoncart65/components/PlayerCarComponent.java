@@ -31,6 +31,8 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
     float forcelength = 20;
     float turnspeed = 40;
     
+    public boolean bd;
+    
     public PlayerCarComponent(Model m) {
         super(m);
         this.attach(uc);
@@ -54,27 +56,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
-    
-                    if(this.currentitem != null){
-                    ItemComponent im = new ItemComponent(this.currentitem);
-                    if(currentitem instanceof ShellItem){
-                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-8))));
-                        WorldEngine.getCurrent().attach(im);
-                        
-                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-23));
-                        WorldEngine.getCurrent().rescanRenderables();
-                    }else if(currentitem instanceof BananaItem){
-                        
-                        System.out.println("banana");
-                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-8))));
-                        WorldEngine.getCurrent().attach(im);
-                        
-                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-12));
-                        WorldEngine.getCurrent().rescanRenderables();
-                    }else if(currentitem instanceof MushroomItem){
-                          this.p.getEntity().velocity =(getRotation().transform(new Vector3f(0,0,-50)));
-                    }
-                    }
+              
                     break;
                 case "forward":
                     control.z -= 1;
@@ -109,5 +91,29 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
             }
         }
     }
-    
+    public void useItem(){
+        this.setPositionOffset(this.getPosition().add(new Vector3f(0,10f,0)));
+                    if(this.currentitem!=null){
+                    ItemComponent im = new ItemComponent(this.currentitem);
+           
+                    if(currentitem instanceof ShellItem){
+                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-10))));
+                        WorldEngine.getCurrent().attach(im);
+                        
+                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-20));
+                        WorldEngine.getCurrent().rescanRenderables();
+                    }else if(currentitem instanceof BananaItem){
+                        
+                        System.out.println("banana");
+                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-8))));
+                        WorldEngine.getCurrent().attach(im);
+                        
+                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-12));
+                        WorldEngine.getCurrent().rescanRenderables();
+                    }else if(currentitem instanceof MushroomItem){
+                        System.out.println("anikan");
+                          this.p.getEntity().velocity =(getRotation().transform(new Vector3f(0,0,-50)));
+                    }
+                    }
+    }
 }

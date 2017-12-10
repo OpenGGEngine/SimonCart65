@@ -146,16 +146,16 @@ public class RaceManagerComponent extends Component implements Actionable {
                 g.setText(p.raceposition + "th");
                 break;
         }
-        item.setTexture(items[pointer / 15].t);
+        item.setTexture(items[pointer / 20].t);
         
         if (pointer2 == 0) {
-            p.currentitem = items[pointer / 15];
+            p.currentitem = items[pointer / 20];
             pointer2 = -1;
         }
         if (pointer2 > 0) {
             pointer++;
 
-            if (pointer > (items.length * 15) - 1) {
+            if (pointer > (items.length * 20) - 1) {
 
                 pointer = 0;
 
@@ -172,13 +172,16 @@ public class RaceManagerComponent extends Component implements Actionable {
             if (action.type == ActionType.PRESS) {
                 switch (action.name) {
                     case "useitem":
+                        
                         if (p.currentitem != null) {
                             System.out.println("sa");
                             itemuse.play();
-
+                            p.useItem();
                             p.currentitem = null;
                             item.enabled = false;
                        
+                        }else{
+                            spinitem();
                         }
                         break;
                 }
