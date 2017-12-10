@@ -54,7 +54,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
-                    this.setPositionOffset(this.getPosition().add(new Vector3f(0,5,0)));
+    
                     if(this.currentitem != null){
                     ItemComponent im = new ItemComponent(this.currentitem);
                     if(currentitem instanceof ShellItem){

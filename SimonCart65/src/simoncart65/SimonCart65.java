@@ -30,6 +30,7 @@ import com.opengg.core.world.Skybox;
 import com.opengg.core.world.Terrain;
 import com.opengg.core.world.components.*;
 import java.io.IOException;
+import java.util.logging.Level;
 import simoncart65.components.*;
 
 /**
@@ -110,7 +111,7 @@ public class SimonCart65 extends GGApplication {
         WorldEngine.getCurrent().attach(cm1);
 
         Checkpoint c2 = new Checkpoint(5, 2);
-        c2.setPositionOffset(new Vector3f(-40, -30, -40));
+        c2.setPositionOffset(new Vector3f(-70, -30, -40));
         ModelRenderComponent cm2 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm2.setPositionOffset(c2.getPosition());
         WorldEngine.getCurrent().attach(c2);
@@ -170,6 +171,13 @@ public class SimonCart65 extends GGApplication {
         } catch (Exception e) {
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
         }
+        ItemBoxSpawner i = null;
+        try {
+            i = new ItemBoxSpawner(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+        } catch (IOException ex) {
+           
+        }
+        WorldEngine.getCurrent().attach(i);
 
     }
 

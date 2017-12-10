@@ -69,11 +69,11 @@ public class RaceManagerComponent extends Component implements Actionable {
     public static LinkedList<Node> nodes = new LinkedList<>();
 
     public Spline2D path;
-    Sound s;
+    static Sound s;
 
     UserControlComponent uc = new UserControlComponent();
-    int pointer = 0;
-    int pointer2 = 0;
+    static int pointer = 0;
+    static int pointer2 = 0;
 
     public RaceManagerComponent() throws IOException {
 
@@ -146,15 +146,15 @@ public class RaceManagerComponent extends Component implements Actionable {
                 g.setText(p.raceposition + "th");
                 break;
         }
-        item.setTexture(items[pointer / 20].t);
+        item.setTexture(items[pointer / 15].t);
         if (pointer2 == 0) {
-            p.currentitem = items[pointer / 20];
+            p.currentitem = items[pointer / 15];
             pointer2 = -1;
         }
         if (pointer2 > 0) {
             pointer++;
 
-            if (pointer > (items.length * 20) - 1) {
+            if (pointer > (items.length * 15) - 1) {
 
                 pointer = 0;
 
@@ -171,11 +171,8 @@ public class RaceManagerComponent extends Component implements Actionable {
             if (action.type == ActionType.PRESS) {
                 switch (action.name) {
                     case "useitem":
-                        if (p.currentitem == null) {
-                            s.play();
-                            pointer2 = 250 + (int) (Math.random() * 100);
-                            item.enabled = true;
-                        } else {
+                        if (p.currentitem != null) {
+                            System.out.println("sa");
                             itemuse.play();
 
                             p.currentitem = null;
@@ -185,6 +182,14 @@ public class RaceManagerComponent extends Component implements Actionable {
                 }
             }
         }
+    }
+    
+    public static void spinitem(){
+         if (p.currentitem == null) {
+                            s.play();
+                            pointer2 = 250 + (int) (Math.random() * 100);
+                         
+                        }
     }
 
 }
