@@ -60,11 +60,15 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
                         im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-23));
                         WorldEngine.getCurrent().rescanRenderables();
                     }else if(currentitem instanceof BananaItem){
-                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,8))));
+                        
+                        System.out.println("banana");
+                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,4,-3))));
                         WorldEngine.getCurrent().attach(im);
                         
                         im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,6));
                         WorldEngine.getCurrent().rescanRenderables();
+                    }else if(currentitem instanceof MushroomItem){
+                          this.p.getEntity().velocity =(getRotation().transform(new Vector3f(0,0,-40)));
                     }
                     }
                     break;

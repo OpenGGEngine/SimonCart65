@@ -45,7 +45,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     public static PlayerCarComponent p;
     public static Item[] items = new Item[]{new ShellItem(Resource.getTexture("shell.png"),"C:\\res\\GreenShell\\GreenShell.bmf")
-    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new BananaItem(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f))};
+    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new BananaItem(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new MushroomItem(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf")};
     GUITexture itemholder;
     GUITexture item;
     GUIGroup sidebar;
