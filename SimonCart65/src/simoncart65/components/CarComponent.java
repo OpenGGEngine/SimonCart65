@@ -26,7 +26,7 @@ public class CarComponent extends Component {
     public boolean dtock = false;
     public boolean tick = false;
     
-    public Item currentitem = RaceManagerComponent.items[0];
+    public Item currentitem = null;
     public ModelRenderComponent mc;
     public PhysicsComponent p; 
     public Force f;

@@ -39,6 +39,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     static Model banana;
     
+    public static PlayerCarComponent p;
     public static Item[] items = new Item[]{new Item(Resource.getTexture("shell.png"),"C:\\res\\banana\\banana.bmf")
     ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf")};
     GUITexture itemholder;
@@ -54,6 +55,8 @@ public class RaceManagerComponent extends Component implements Actionable{
     GGFont  font = Resource.getFont("test", "test.png");
     GUIText g = new GUIText(new Text("1st" ,new Vector2f(), 3.2f, 0.5f, false),font,new Vector2f(0.04f,-0.05f));
     
+     GUIText lapcounter = new GUIText(new Text("1/3 Lap" ,new Vector2f(), 1.2f, 0.5f, false),font,new Vector2f(0.8f,-0.05f));
+    
     Sound s;
     
     public int checkpoints = 0;
@@ -65,8 +68,8 @@ public class RaceManagerComponent extends Component implements Actionable{
        
        // TextureManager.loadTexture("itemholder");
         s =new Sound(Resource.getSoundData("item.ogg"));
-       itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.23f,0.7f), new Vector2f(0.3f,0.3f));
-         item = new GUITexture(items[0].t,new Vector2f(-0.185f,0.75f), new Vector2f(0.20f,0.20f));
+       itemholder = new GUITexture( Resource.getTexture("itemholder.png"),new Vector2f(-0.21f,0.7f), new Vector2f(0.3f,0.3f));
+         item = new GUITexture(items[0].t,new Vector2f(-0.165f,0.75f), new Vector2f(0.20f,0.20f));
          
          first = new GUITexture(Resource.getTexture("selector.png"),new Vector2f(-0.94f,0.3f), new Vector2f(0.25f,0.25f));
           second = new GUITexture(Resource.getTexture("secondplace.png"),new Vector2f(-0.94f,-0.1f), new Vector2f(0.25f,0.25f));
@@ -93,6 +96,7 @@ public class RaceManagerComponent extends Component implements Actionable{
                sidebar.addItem("tp", tp);
                sidebar.addItem("frp", frp);
                sidebar.addItem("place", g);
+               sidebar.addItem("lapcounter", lapcounter);
         item.setLayer(-1f);
         GUI.root.addItem("itemholder", itemholder);
         GUI.root.addItem("sidebar", sidebar);
@@ -111,9 +115,12 @@ public class RaceManagerComponent extends Component implements Actionable{
         
         if(pointer > (items.length*20)  -1){
             pointer = 0;
+            
+            p.currentitem = items[pointer/20];
         }
         pointer2--;
         }
+        lapcounter.setText("Lap: " + (p.lap+1) +"/3");
     }
 
     @Override
@@ -121,8 +128,14 @@ public class RaceManagerComponent extends Component implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
+                    if(p.currentitem == null){
                     s.play();
                     pointer2 = 250 + (int)(Math.random()*100);
+                    item.enabled = true;
+                    }else{
+                        p.currentitem = null;
+                        item.enabled = false;
+                    }
                     break;
             }
         }
