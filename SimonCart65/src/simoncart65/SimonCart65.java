@@ -38,6 +38,7 @@ import simoncart65.components.*;
 public class SimonCart65 extends GGApplication{
     public RaceManagerComponent mg;
     public ModelRenderComponent ceesdasdf;
+    public MainMenuComponent mm;
     public static SimonCart65 sc65;
     /**
      * @param args the command line arguments
@@ -71,7 +72,7 @@ public class SimonCart65 extends GGApplication{
         game.shuffle();
         game.play();   
         AudioController.setGlobalGain(0f);
-        
+        mm = new MainMenuComponent();
         //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
 
         try {
@@ -186,7 +187,8 @@ public class SimonCart65 extends GGApplication{
     float full = 0;
     @Override
     public void update(float delta) {
-        mg.update(delta);
+        //mg.update(delta);
+        mm.update(delta);
     }
     
 }
