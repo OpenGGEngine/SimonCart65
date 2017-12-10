@@ -9,11 +9,13 @@ import com.opengg.core.audio.Sound;
 import com.opengg.core.audio.SoundData;
 import com.opengg.core.engine.BindController;
 import com.opengg.core.engine.Resource;
+import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.gui.GUI;
 import com.opengg.core.gui.GUIGroup;
 import com.opengg.core.gui.GUIText;
 import com.opengg.core.gui.GUITexture;
 import com.opengg.core.math.Vector2f;
+import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.render.Text;
@@ -42,8 +44,8 @@ public class RaceManagerComponent extends Component implements Actionable{
     static Model banana;
     
     public static PlayerCarComponent p;
-    public static Item[] items = new Item[]{new Item(Resource.getTexture("shell.png"),"C:\\res\\banana\\banana.bmf")
-    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf")};
+    public static Item[] items = new Item[]{new ShellItem(Resource.getTexture("shell.png"),"C:\\res\\GreenShell\\GreenShell.bmf")
+    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new Item(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f)),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f))};
     GUITexture itemholder;
     GUITexture item;
     GUIGroup sidebar;
@@ -156,6 +158,10 @@ public class RaceManagerComponent extends Component implements Actionable{
                     item.enabled = true;
                     }else{
                         itemuse.play();
+                        ItemComponent im = new ItemComponent(p.currentitem);
+                        im.setPositionOffset(p.getPosition());
+                        WorldEngine.getCurrent().attach(im);
+                        WorldEngine.getCurrent().rescanRenderables();
                         p.currentitem = null;
                         item.enabled = false;
                     }

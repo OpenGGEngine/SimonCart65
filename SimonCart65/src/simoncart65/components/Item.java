@@ -5,6 +5,7 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.render.texture.Texture;
@@ -18,15 +19,18 @@ import java.io.IOException;
 public class Item {
     public Texture t;
     public Model display;
+    public Vector3f scale;
     
-    public Item(Texture t,String modelpath){
+    public Item(Texture t,String modelpath, Vector3f scale){
         this.t = t;
         try {
             this.display = ModelLoader.loadNewModel(modelpath);
         } catch (IOException ex) {
             
         }
+        this.scale = scale;
     }
     
-    public  void use(){};
+    public  void use(){
+    };
 }
