@@ -6,6 +6,7 @@
 package simoncart65.components;
 
 import com.opengg.core.engine.BindController;
+import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.math.Quaternionf;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.math.Vector3fm;
@@ -50,7 +51,14 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
-                    
+                    if(this.currentitem != null){
+                    ItemComponent im = new ItemComponent(this.currentitem);
+                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-8))));
+                        WorldEngine.getCurrent().attach(im);
+                        
+                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-23));
+                        WorldEngine.getCurrent().rescanRenderables();
+                    }
                     break;
                 case "forward":
                     control.z -= 1;

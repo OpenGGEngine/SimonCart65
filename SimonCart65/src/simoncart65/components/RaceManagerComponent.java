@@ -159,10 +159,7 @@ public class RaceManagerComponent extends Component implements Actionable{
                     item.enabled = true;
                     }else{
                         itemuse.play();
-                        ItemComponent im = new ItemComponent(p.currentitem);
-                        im.setPositionOffset(p.getPosition());
-                        WorldEngine.getCurrent().attach(im);
-                        WorldEngine.getCurrent().rescanRenderables();
+                       
                         p.currentitem = null;
                         item.enabled = false;
                     }
