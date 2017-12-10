@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import simoncart65.SimonCart65;
+import static simoncart65.SimonCart65.sc65;
 
 /**
  *
@@ -74,11 +75,15 @@ public class Checkpoint extends Component implements Triggerable{
            Checkpoint c = getById(i);
            if(c != null)
             checks.add(c);
-           else
+           else{
+               sc65.mg.checkpoints = i;
                return checks;
+           }
+               
            
            i++;
        }
+       
     }
     
     @Override

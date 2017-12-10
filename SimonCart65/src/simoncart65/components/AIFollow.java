@@ -16,8 +16,8 @@ import static simoncart65.SimonCart65.sc65;
  */
 public class AIFollow extends Component{
     float speed = 10;
-    float speedmult = 0.3f;
-    float skill = 10;
+    float speedmult = 0.4f;
+    float skill = 20;
     float currentpos = 0;
     public AICarComponent c;
     
@@ -29,12 +29,15 @@ public class AIFollow extends Component{
         }else if(getPosition().subtract(c.getPosition()).length()<skill){
             speed += delta*speedmult*diff.length();
         }
- 
-       if(currentpos > 1) currentpos  = 0;
+               
+        if(currentpos > 1) currentpos  = 0;
         if(speed < 1) speed = 1f;
         currentpos += speed*delta*0.01f*(100/sc65.mg.path.getLength());
         Vector2f npos = sc65.mg.path.getPoint(currentpos);
-        this.setPositionOffset(new Vector3f(npos.x,sc65.tc.getHeightAt(new Vector3f(npos.x, 0, npos.y)),npos.y));
+        float height = sc65.tc.getHeightAt(new Vector3f(npos.x, 0, npos.y));
+        height += 2;
+        if(Float.isNaN(height)) height = 61;
+        this.setPositionOffset(new Vector3f(npos.x,height,npos.y));
         
     }
 }

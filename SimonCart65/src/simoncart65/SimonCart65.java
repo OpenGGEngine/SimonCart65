@@ -91,7 +91,7 @@ public class SimonCart65 extends GGApplication {
         game.play();
         AudioController.setGlobalGain(0f);
         mm = new MainMenuComponent();
-        WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
+        WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map2")));
         try {
             mg = new RaceManagerComponent();
             mg.checkpoints = 4;
@@ -104,6 +104,7 @@ public class SimonCart65 extends GGApplication {
 
         tc = new TerrainComponent(t);
         tc.enableCollider();
+        TextureManager.unloadTexture(Resource.getTexturePath("rainbowblend.png"));
         tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("rainbowblend.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("black.png"), Resource.getTextureData("rainbowroad.png"), Resource.getTextureData("black.png"), Resource.getTextureData("black.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
@@ -168,7 +169,7 @@ public class SimonCart65 extends GGApplication {
         PlayerCarComponent pcc = null;
         try {
             pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-            pcc.setPositionOffset(new Vector3f(0, -30, 10));
+            pcc.setPositionOffset(Checkpoint.getById(0).getPosition());
             ((ConvexHull)pcc.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
             RaceManagerComponent.racers.add(pcc);
             WorldEngine.getCurrent().attach(pcc);
@@ -184,9 +185,9 @@ public class SimonCart65 extends GGApplication {
             AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
             ((ConvexHull)car.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
             car.charge = 10;
-            car.setPositionOffset(new Vector3f(0, -30, 0));
-            //RaceManagerComponent.racers.add(car);
-            //WorldEngine.getCurrent().attach(car);
+            car.setPositionOffset(Checkpoint.getById(0).getPosition().add(new Vector3f(20,0,0)));
+            RaceManagerComponent.racers.add(car);
+            WorldEngine.getCurrent().attach(car);
         } catch (Exception e) {
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
         }
