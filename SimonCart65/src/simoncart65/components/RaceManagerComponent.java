@@ -47,8 +47,8 @@ public class RaceManagerComponent extends Component implements Actionable {
     public static Item[] items = new Item[]{new ShellItem(Resource.getTexture("shell.png"), "C:\\res\\GreenShell\\GreenShell.bmf"),
          new Item(Resource.getTexture("fakebox.png"), "C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)), new BananaItem(Resource.getTexture("banana.png"), "C:\\res\\banana\\banana.bmf"), new MushroomItem(Resource.getTexture("mushroom.png"), "C:\\res\\banana\\banana.bmf")};
     GUITexture itemholder;
-    GUITexture item;
-    GUIGroup sidebar;
+   static  GUITexture item;
+    static GUIGroup sidebar;
 
     Texture simon = Resource.getTexture("simon.png");
     Texture bobomb = Resource.getTexture("simon.png");
@@ -147,6 +147,7 @@ public class RaceManagerComponent extends Component implements Actionable {
                 break;
         }
         item.setTexture(items[pointer / 15].t);
+        
         if (pointer2 == 0) {
             p.currentitem = items[pointer / 15];
             pointer2 = -1;
@@ -177,6 +178,7 @@ public class RaceManagerComponent extends Component implements Actionable {
 
                             p.currentitem = null;
                             item.enabled = false;
+                       
                         }
                         break;
                 }
@@ -186,6 +188,7 @@ public class RaceManagerComponent extends Component implements Actionable {
     
     public static void spinitem(){
          if (p.currentitem == null) {
+             item.enabled = true;
                             s.play();
                             pointer2 = 250 + (int) (Math.random() * 100);
                          

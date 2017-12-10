@@ -177,7 +177,17 @@ public class SimonCart65 extends GGApplication {
         } catch (IOException ex) {
            
         }
-        WorldEngine.getCurrent().attach(i);
+        WorldEngine.getCurrent().attach(i)
+                ;
+        
+         ItemBoxSpawner i2 = null;
+        try {
+            i2 = new ItemBoxSpawner(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+        } catch (IOException ex) {
+           
+        }
+        i2.setPositionOffset(new Vector3f(0,10,0));
+        WorldEngine.getCurrent().attach(i2);
 
     }
 
@@ -212,7 +222,7 @@ public class SimonCart65 extends GGApplication {
         } else {
             GUI.root.getItem("itemholder").enabled = true;
             GUI.root.getItem("sidebar").enabled = true;
-            GUI.root.getItem("item").enabled = true;
+            //GUI.root.getItem("item").enabled = true;
             GUI.root.getItem("characterselect").enabled = false;
             mg.enabled = true;
             mm.enabled = false;
