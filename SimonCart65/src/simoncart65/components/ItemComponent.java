@@ -33,12 +33,13 @@ public class ItemComponent extends Component{
         pc.addCollider(new ColliderGroup(new AABB(10,10,3), new ConvexHull(item.display.ch)));
         this.attach(pc);
         
-          if(item instanceof ShellItem){
-            Force sd = new Force();
-            sd.force = new Vector3f();
-            pc.getEntity().velocity = new Vector3f(0.1f).add(RaceManagerComponent.p.p.getEntity().velocity);
-           // this.pc.getEntity().addForce(sd);
-        }
+//          if(item instanceof ShellItem){
+//            Force sd = new Force();
+//            sd.force = new Vector3f();
+//          //  pc.getEntity().velocity = new Vector3f(0.1f).add(RaceManagerComponent.p.p.getEntity().velocity);
+//           // this.pc.getEntity().addForce(sd);
+//        }
+          
           m.setScaleOffset(item.scale);
     }
    

@@ -45,7 +45,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     
     public static PlayerCarComponent p;
     public static Item[] items = new Item[]{new ShellItem(Resource.getTexture("shell.png"),"C:\\res\\GreenShell\\GreenShell.bmf")
-    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new Item(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f)),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f))};
+    ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new BananaItem(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new Item(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf",new Vector3f(0.3f))};
     GUITexture itemholder;
     GUITexture item;
     GUIGroup sidebar;
@@ -134,17 +134,22 @@ public class RaceManagerComponent extends Component implements Actionable{
                 break;
         }
         item.setTexture(items[pointer/20].t);
-       
-        if(pointer2 !=0){
+       if(pointer2 == 0){
+           p.currentitem = items[pointer/20];
+           pointer2 = -1;
+       }
+        if(pointer2 >0){
         pointer++;
         
         if(pointer > (items.length*20)  -1){
+            
             pointer = 0;
             
-            p.currentitem = items[pointer/20];
+            
         }
         pointer2--;
         }
+        
         lapcounter.setText("Lap: " + (p.lap+1) +"/3");
     }
 

@@ -53,11 +53,19 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
                 case "useitem":
                     if(this.currentitem != null){
                     ItemComponent im = new ItemComponent(this.currentitem);
+                    if(currentitem instanceof ShellItem){
                         im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,-8))));
                         WorldEngine.getCurrent().attach(im);
                         
                         im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,-23));
                         WorldEngine.getCurrent().rescanRenderables();
+                    }else if(currentitem instanceof BananaItem){
+                        im.setPositionOffset(p.getPosition().add(getRotation().transform(new Vector3f(0,0,8))));
+                        WorldEngine.getCurrent().attach(im);
+                        
+                        im.pc.getEntity().velocity = getRotation().transform(new Vector3f(0,0,6));
+                        WorldEngine.getCurrent().rescanRenderables();
+                    }
                     }
                     break;
                 case "forward":
