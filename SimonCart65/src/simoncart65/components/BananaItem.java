@@ -15,7 +15,7 @@ import com.opengg.core.render.texture.Texture;
 public class BananaItem extends Item{
     
     public BananaItem(Texture t, String modelpath) {
-        super(t, modelpath, new Vector3f(0.2f));
+        super(t, modelpath, new Vector3f(0.26f));
     }
     
 }
