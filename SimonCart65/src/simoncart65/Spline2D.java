@@ -10,7 +10,6 @@ package simoncart65;
  * @author Warren
  */
 import com.opengg.core.math.Vector2f;
-import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

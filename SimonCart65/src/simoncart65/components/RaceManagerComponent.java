@@ -130,8 +130,8 @@ public class RaceManagerComponent extends Component implements Actionable {
         ((GUIText) sidebar.getItem("spedometer")).setText("Quickness: \n" + (int) Math.abs(p.p.getEntity().velocity.x()) + " speeds");
 
         p.raceposition = racers.tailSet(p).size();
-        System.out.println(racers.size());
-        System.out.println(p.raceposition);
+        //System.out.println(racers.size());
+        //System.out.println(p.raceposition);
         switch (p.raceposition) {
             case 1:
                 g.setText("1st");

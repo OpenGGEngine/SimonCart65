@@ -7,12 +7,19 @@ package simoncart65.components;
 
 import com.opengg.core.engine.OpenGG;
 import com.opengg.core.engine.WorldEngine;
+import com.opengg.core.model.ModelLoader;
 import com.opengg.core.physics.collision.AABB;
+import com.opengg.core.util.GGInputStream;
+import com.opengg.core.util.GGOutputStream;
 import com.opengg.core.world.components.Component;
+import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.Zone;
 import com.opengg.core.world.components.triggers.Trigger;
 import com.opengg.core.world.components.triggers.TriggerInfo;
 import com.opengg.core.world.components.triggers.Triggerable;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import simoncart65.SimonCart65;
 
 /**
@@ -25,7 +32,7 @@ public class Checkpoint extends Component implements Triggerable{
     int cid;
     
     public Checkpoint(){
-        this(5, 1);
+        this(0, 0);
     }
     
     public Checkpoint(float rad, int id){
@@ -60,7 +67,36 @@ public class Checkpoint extends Component implements Triggerable{
         return null;
     }
     
-    //public static List<Checkpoint> getOrdered(){
-        //List<Checkpoint> checks
-    //}
+    public static List<Checkpoint> getOrdered(){
+       List<Checkpoint> checks = new ArrayList<>();
+       int i = 0;
+       while(true){
+           Checkpoint c = getById(i);
+           if(c != null)
+            checks.add(c);
+           else
+               return checks;
+           
+           i++;
+       }
+    }
+    
+    @Override
+    public void serialize(GGOutputStream out) throws IOException{
+        super.serialize(out);
+        out.write(radius);
+        out.write(cid);
+    }
+    
+    @Override
+    public void deserialize(GGInputStream in) throws IOException{
+        super.deserialize(in);
+        radius = in.readFloat();
+        this.remove(zone);
+        zone = new Zone(new AABB(radius,radius,radius));
+        zone.addSubscriber(this);
+        zone.setSerializable(false);
+        this.attach(zone);
+        cid = in.readInt();
+    }
 }

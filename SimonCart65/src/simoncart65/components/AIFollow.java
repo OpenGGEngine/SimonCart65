@@ -34,6 +34,7 @@ public class AIFollow extends Component{
         if(speed < 1) speed = 1f;
         currentpos += speed*delta*0.01f*(100/sc65.mg.path.getLength());
         Vector2f npos = sc65.mg.path.getPoint(currentpos);
-        this.setPositionOffset(new Vector3f(npos.x,-30,npos.y));
+        this.setPositionOffset(new Vector3f(npos.x,sc65.tc.getHeightAt(new Vector3f(npos.x, 0, npos.y)),npos.y));
+        
     }
 }

@@ -64,11 +64,9 @@ public class ItemComponent extends Component{
             }
             
         }
-        System.out.println(force);
        
        Vector3f ds =  ((top.getPosition().subtract(this.getPosition())).multiply(10/distance1));
          pc.getEntity().velocity = pc.getEntity().velocity.add(ds);
-        System.out.println(this.pc.getEntity().velocity.toString());
     }
    
     

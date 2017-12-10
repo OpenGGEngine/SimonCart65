@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-module SimonCart {
+module SimonCart65 {
     requires com.opengg.core;
     requires com.opengg.math;
-    requires java.desktop;
+    requires com.opengg.console;
+    exports simoncart65;
+    exports simoncart65.components;
 }

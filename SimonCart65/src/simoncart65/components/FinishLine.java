@@ -8,6 +8,7 @@ package simoncart65.components;
 import com.opengg.core.engine.OpenGG;
 import com.opengg.core.engine.Resource;
 import com.opengg.core.model.ModelLoader;
+import com.opengg.core.model.ModelManager;
 import com.opengg.core.util.GGInputStream;
 import com.opengg.core.util.GGOutputStream;
 import com.opengg.core.world.components.Component;
@@ -29,8 +30,7 @@ public class FinishLine extends Component implements Triggerable{
         zone = new Checkpoint(5,0);
         zone.zone.addSubscriber(this);
         zone.setSerializable(false);
-        mrp = new ModelRenderComponent(Resource.getModel("flafg"));
-        mrp.setSerializable(false);
+        mrp = new ModelRenderComponent(ModelManager.getDefaultModel());
         this.attach(mrp);
         this.attach(zone);
     }
@@ -62,5 +62,7 @@ public class FinishLine extends Component implements Triggerable{
     public void deserialize(GGInputStream in) throws IOException{
         super.deserialize(in);
         mrp = new ModelRenderComponent(ModelLoader.loadModel(in.readString()));
+        mrp.setSerializable(false);
+        this.attach(mrp);
     }
 }

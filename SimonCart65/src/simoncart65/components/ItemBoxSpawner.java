@@ -37,7 +37,6 @@ public class ItemBoxSpawner extends Component implements Triggerable{
     }
     @Override
     public void update(float delta){
-        System.out.println(istaken);
         ms.setEnabled(istaken);
         if(pointer >0){
             pointer--;

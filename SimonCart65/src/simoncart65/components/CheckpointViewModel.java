@@ -32,6 +32,9 @@ public class CheckpointViewModel extends ViewModel{
         cid.name = "Checkpoint ID";
         cid.autoupdate = true;
         cid.value = 0;
+        
+        getElements().add(rad);
+        getElements().add(cid);
     }
 
     @Override
@@ -47,15 +50,17 @@ public class CheckpointViewModel extends ViewModel{
 
     @Override
     public void onChange(Element element) {
-        if(element.internalname.equalsIgnoreCase("radius"))
+        if(element.internalname.equalsIgnoreCase("radius")){
             ((Checkpoint)component).zone.getBox().setLWH(new Vector3f((float) element.value));
-        else if(element.internalname.equalsIgnoreCase("cid"))
+            ((Checkpoint)component).radius = (float) element.value;
+        }else if(element.internalname.equalsIgnoreCase("cid"))
             ((Checkpoint)component).cid = (int) element.value;
     }
 
     @Override
     public void updateViews() {
-        
+        this.getByName("cid").value = ((Checkpoint)component).cid;
+        this.getByName("radius").value = ((Checkpoint)component).radius;
     }
     
 }

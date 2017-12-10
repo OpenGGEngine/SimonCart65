@@ -21,6 +21,7 @@ import static com.opengg.core.io.input.keyboard.Key.*;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
+import com.opengg.core.physics.collision.ConvexHull;
 import com.opengg.core.render.light.Light;
 import com.opengg.core.render.texture.Texture;
 import com.opengg.core.render.texture.TextureManager;
@@ -28,9 +29,11 @@ import com.opengg.core.render.window.WindowInfo;
 import com.opengg.core.render.window.WindowOptions;
 import com.opengg.core.world.Skybox;
 import com.opengg.core.world.Terrain;
+import com.opengg.core.world.WorldLoader;
 import com.opengg.core.world.components.*;
 import java.io.IOException;
-import java.util.logging.Level;
+import java.util.ArrayList;
+import java.util.List;
 import simoncart65.components.*;
 
 /**
@@ -44,6 +47,7 @@ public class SimonCart65 extends GGApplication {
     public MainMenuComponent mm;
     public static SimonCart65 sc65;
     public static boolean inmenu = false;
+    public static TerrainComponent tc;
 
     /**
      * @param args the command line arguments
@@ -63,6 +67,15 @@ public class SimonCart65 extends GGApplication {
 
     @Override
     public void setup() {
+        ArrayList<Vector3f> v2 = new ArrayList<>();
+        v2.add(new Vector3f(-1,-1,-1));
+        v2.add(new Vector3f(-1,1,-1));
+        v2.add(new Vector3f(-1,-1,1));
+        v2.add(new Vector3f(-1,1,1));
+        v2.add(new Vector3f(1,-1,-1));
+        v2.add(new Vector3f(1,1,-1));
+        v2.add(new Vector3f(1,-1,1));
+        v2.add(new Vector3f(1,1,1));
         Soundtrack menu = new Soundtrack();
         menu.addSong(Resource.getSoundData("windgarden.ogg"));
 
@@ -78,8 +91,7 @@ public class SimonCart65 extends GGApplication {
         game.play();
         AudioController.setGlobalGain(0f);
         mm = new MainMenuComponent();
-        //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
-
+        WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
         try {
             mg = new RaceManagerComponent();
             mg.checkpoints = 4;
@@ -88,17 +100,17 @@ public class SimonCart65 extends GGApplication {
 
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0, 20, 200), new Vector3f(1, 1, 1), 100000, 0)));
 
-        Terrain t = Terrain.generate(Resource.getTextureData("rainbowheight.png"));
+        Terrain t = Terrain.generate(Resource.getTextureData("map1.png"));
 
-        TerrainComponent tc = new TerrainComponent(t);
-        //tc.enableCollider();
-        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("rainbowblend.png"), false)));
+        tc = new TerrainComponent(t);
+        tc.enableCollider();
+        tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("blend1.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("black.png"), Resource.getTextureData("rainbowroad.png"), Resource.getTextureData("black.png"), Resource.getTextureData("black.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
         tc.setScaleOffset(new Vector3f(400, 60f, 400));
 
         WorldEngine.getCurrent().attach(tc);
-
+/*
         FinishLine check = new FinishLine();
         check.setPositionOffset(new Vector3f(0, -30, 0));
         WorldEngine.getCurrent().attach(check);
@@ -125,7 +137,11 @@ public class SimonCart65 extends GGApplication {
         WorldEngine.getCurrent().attach(cm3);
 
         ceesdasdf = new ModelRenderComponent(ModelManager.getDefaultModel());
-        WorldEngine.getCurrent().attach(ceesdasdf);
+        WorldEngine.getCurrent().attach(ceesdasdf);*/
+
+        for(Component c : WorldEngine.getCurrent().getAll())
+            if(c instanceof TerrainComponent)
+                tc = (TerrainComponent) c;
 
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
         BindController.addBind(ControlType.KEYBOARD, "backward", KEY_S);
@@ -153,6 +169,7 @@ public class SimonCart65 extends GGApplication {
         try {
             pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
             pcc.setPositionOffset(new Vector3f(0, -30, 10));
+            ((ConvexHull)pcc.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
             RaceManagerComponent.racers.add(pcc);
             WorldEngine.getCurrent().attach(pcc);
         } catch (IOException ex) {
@@ -160,14 +177,16 @@ public class SimonCart65 extends GGApplication {
         }
         RaceManagerComponent.p = pcc;
 
-        generateNodesFromCheckpoints();
+        
+        generateNodesFromCheckpoints(Checkpoint.getOrdered());
         mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
         try {
             AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            ((ConvexHull)car.p.getEntity().getColliders().get(0).getColliders().get(0)).vertices = v2;
             car.charge = 10;
             car.setPositionOffset(new Vector3f(0, -30, 0));
-            RaceManagerComponent.racers.add(car);
-            WorldEngine.getCurrent().attach(car);
+            //RaceManagerComponent.racers.add(car);
+            //WorldEngine.getCurrent().attach(car);
         } catch (Exception e) {
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
         }
@@ -177,29 +196,17 @@ public class SimonCart65 extends GGApplication {
         } catch (IOException ex) {
            
         }
-        WorldEngine.getCurrent().attach(i)
-                ;
-        
-         ItemBoxSpawner i2 = null;
-        try {
-            i2 = new ItemBoxSpawner(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-        } catch (IOException ex) {
-           
-        }
-        i2.setPositionOffset(new Vector3f(0,10,0));
-        WorldEngine.getCurrent().attach(i2);
+        WorldEngine.getCurrent().attach(i);
 
     }
 
-    public void generateNodesFromCheckpoints() {
+    public void generateNodesFromCheckpoints(List<Checkpoint> checkpoints) {
         int s = 0;
-        for (Component c : WorldEngine.getCurrent().getAll()) {
-            if (c instanceof Checkpoint) {
-                Node n = new Node(Integer.toString(s), WorldEngine.getCurrent().getAll().indexOf(c) == WorldEngine.getCurrent().getAll().size() ? Integer.toString(0) : Integer.toString(s - 1));
-                n.setPositionOffset(c.getPosition());
-                WorldEngine.getCurrent().attach(n);
-                RaceManagerComponent.nodes.add(n);
-            }
+        for (Checkpoint c : checkpoints) {
+            Node n = new Node(Integer.toString(s), WorldEngine.getCurrent().getAll().indexOf(c) == WorldEngine.getCurrent().getAll().size() ? Integer.toString(0) : Integer.toString(s - 1));
+            n.setPositionOffset(c.getPosition());
+            WorldEngine.getCurrent().attach(n);
+            RaceManagerComponent.nodes.add(n);
         }
     }
 
@@ -222,7 +229,7 @@ public class SimonCart65 extends GGApplication {
         } else {
             GUI.root.getItem("itemholder").enabled = true;
             GUI.root.getItem("sidebar").enabled = true;
-            //GUI.root.getItem("item").enabled = true;
+            GUI.root.getItem("item").enabled = true;
             GUI.root.getItem("characterselect").enabled = false;
             mg.enabled = true;
             mm.enabled = false;
