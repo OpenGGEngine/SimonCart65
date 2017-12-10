@@ -15,6 +15,7 @@ import com.opengg.core.engine.ProjectionData;
 import com.opengg.core.engine.RenderEngine;
 import com.opengg.core.engine.Resource;
 import com.opengg.core.engine.WorldEngine;
+import com.opengg.core.gui.GUI;
 import com.opengg.core.io.ControlType;
 import static com.opengg.core.io.input.keyboard.Key.*;
 import com.opengg.core.math.Vector3f;
@@ -35,11 +36,14 @@ import simoncart65.components.*;
  *
  * @author Javier
  */
-public class SimonCart65 extends GGApplication{
+public class SimonCart65 extends GGApplication {
+
     public RaceManagerComponent mg;
     public ModelRenderComponent ceesdasdf;
     public MainMenuComponent mm;
     public static SimonCart65 sc65;
+    public static boolean inmenu = false;
+
     /**
      * @param args the command line arguments
      */
@@ -62,65 +66,66 @@ public class SimonCart65 extends GGApplication{
         menu.addSong(Resource.getSoundData("windgarden.ogg"));
 
         menu.shuffle();
-        menu.play();   
+        menu.play();
         AudioController.setGlobalGain(0f);
         SoundtrackHandler.setSoundtrack(menu);
-        
+
         Soundtrack game = new Soundtrack();
         game.addSong(Resource.getSoundData("windgarden.ogg"));
 
         game.shuffle();
-        game.play();   
+        game.play();
         AudioController.setGlobalGain(0f);
-     //   mm = new MainMenuComponent();
+        mm = new MainMenuComponent();
         //WorldEngine.useWorld(WorldLoader.loadWorld(Resource.getWorldPath("map1")));
 
         try {
             mg = new RaceManagerComponent();
             mg.checkpoints = 4;
-        } catch (IOException ex) {}
-        
-        WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
-        
+        } catch (IOException ex) {
+        }
+
+        WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0, 20, 200), new Vector3f(1, 1, 1), 100000, 0)));
+
         Terrain t = Terrain.generate(Resource.getTextureData("rainbowheight.png"));
-        
+
         TerrainComponent tc = new TerrainComponent(t);
         //tc.enableCollider();
         tc.setBlotmap(Texture.get2DTexture(TextureManager.loadTexture(Resource.getTexturePath("rainbowblend.png"), false)));
         tc.setGroundArray(Texture.getArrayTexture(Resource.getTextureData("black.png"), Resource.getTextureData("rainbowroad.png"), Resource.getTextureData("black.png"), Resource.getTextureData("black.png")));
         tc.setPositionOffset(new Vector3f(-200, 60, -200));
-        tc.setScaleOffset(new Vector3f(400,60f, 400));
-        
+        tc.setScaleOffset(new Vector3f(400, 60f, 400));
+
         WorldEngine.getCurrent().attach(tc);
-        
+
         FinishLine check = new FinishLine();
-        check.setPositionOffset(new Vector3f(0,-30,0));
-        WorldEngine.getCurrent().attach(check);  
-        
-        Checkpoint c1 = new Checkpoint(5,1);
-        c1.setPositionOffset(new Vector3f(0,-30,-40));
+        check.setPositionOffset(new Vector3f(0, -30, 0));
+        WorldEngine.getCurrent().attach(check);
+
+        Checkpoint c1 = new Checkpoint(5, 1);
+        c1.setPositionOffset(new Vector3f(0, -30, -40));
         ModelRenderComponent cm1 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm1.setPositionOffset(c1.getPosition());
-        WorldEngine.getCurrent().attach(c1);  
-        WorldEngine.getCurrent().attach(cm1); 
-        
-        Checkpoint c2 = new Checkpoint(5,2);
-        c2.setPositionOffset(new Vector3f(-40,-30,-40));
+        WorldEngine.getCurrent().attach(c1);
+        WorldEngine.getCurrent().attach(cm1);
+
+        Checkpoint c2 = new Checkpoint(5, 2);
+        c2.setPositionOffset(new Vector3f(-40, -30, -40));
         ModelRenderComponent cm2 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm2.setPositionOffset(c2.getPosition());
-        WorldEngine.getCurrent().attach(c2);  
-        WorldEngine.getCurrent().attach(cm2); 
-        
-        Checkpoint c3 = new Checkpoint(5,3);
-        c3.setPositionOffset(new Vector3f(-40,-30,0));
+        WorldEngine.getCurrent().attach(c2);
+        WorldEngine.getCurrent().attach(cm2);
+
+        Checkpoint c3 = new Checkpoint(5, 3);
+        c3.setPositionOffset(new Vector3f(-40, -30, 0));
         ModelRenderComponent cm3 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm3.setPositionOffset(c3.getPosition());
-        WorldEngine.getCurrent().attach(c3);  
-        WorldEngine.getCurrent().attach(cm3); 
-        
+        WorldEngine.getCurrent().attach(c3);
+        WorldEngine.getCurrent().attach(cm3);
+
         ceesdasdf = new ModelRenderComponent(ModelManager.getDefaultModel());
         WorldEngine.getCurrent().attach(ceesdasdf);
-        
+
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
         BindController.addBind(ControlType.KEYBOARD, "backward", KEY_S);
         BindController.addBind(ControlType.KEYBOARD, "left", KEY_A);
@@ -142,57 +147,70 @@ public class SimonCart65 extends GGApplication{
                 Resource.getTexturePath("skybox\\majestic_dn.png"),
                 Resource.getTexturePath("skybox\\majestic_rt.png"),
                 Resource.getTexturePath("skybox\\majestic_lf.png")), 1500f));
-        
+
         PlayerCarComponent pcc = null;
         try {
             pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
-            pcc.setPositionOffset(new Vector3f(0,-30,10));
+            pcc.setPositionOffset(new Vector3f(0, -30, 10));
             RaceManagerComponent.racers.add(pcc);
-            WorldEngine.getCurrent().attach(pcc); 
+            WorldEngine.getCurrent().attach(pcc);
         } catch (IOException ex) {
             System.out.println("stop");
         }
         RaceManagerComponent.p = pcc;
-        
+
         generateNodesFromCheckpoints();
         mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
-        try{
+        try {
             AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
             car.charge = 10;
-            car.setPositionOffset(new Vector3f(0,-30,0));
+            car.setPositionOffset(new Vector3f(0, -30, 0));
             RaceManagerComponent.racers.add(car);
             WorldEngine.getCurrent().attach(car);
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
         }
-        
+
     }
-    
-    public void generateNodesFromCheckpoints(){
+
+    public void generateNodesFromCheckpoints() {
         int s = 0;
-        for(Component c : WorldEngine.getCurrent().getAll()){
-            if(c instanceof Checkpoint){
-                Node n = new Node(Integer.toString(s), WorldEngine.getCurrent().getAll().indexOf(c) == WorldEngine.getCurrent().getAll().size() ? Integer.toString(0) :Integer.toString( s-1));
+        for (Component c : WorldEngine.getCurrent().getAll()) {
+            if (c instanceof Checkpoint) {
+                Node n = new Node(Integer.toString(s), WorldEngine.getCurrent().getAll().indexOf(c) == WorldEngine.getCurrent().getAll().size() ? Integer.toString(0) : Integer.toString(s - 1));
                 n.setPositionOffset(c.getPosition());
                 WorldEngine.getCurrent().attach(n);
                 RaceManagerComponent.nodes.add(n);
             }
         }
     }
-    
+
     @Override
     public void render() {
 
     }
     float full = 0;
+
     @Override
     public void update(float delta) {
-        mg.update(delta);
-        
-        
-      //  mm.update(delta);
+
+        if (inmenu == false) {
+            mm.update(delta);
+            GUI.root.getItem("itemholder").enabled = false;
+            GUI.root.getItem("sidebar").enabled = false;
+            GUI.root.getItem("item").enabled = false;
+            mm.enabled = true;
+            mg.enabled = false;
+        } else {
+            GUI.root.getItem("itemholder").enabled = true;
+            GUI.root.getItem("sidebar").enabled = true;
+            GUI.root.getItem("item").enabled = true;
+            GUI.root.getItem("characterselect").enabled = false;
+            mg.enabled = true;
+            mm.enabled = false;
+            mg.update(delta);
+        }
+
     }
-    
-   
-    
+
 }

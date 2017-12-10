@@ -18,6 +18,7 @@ import com.opengg.core.world.ActionType;
 import com.opengg.core.world.Actionable;
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.UserControlComponent;
+import simoncart65.SimonCart65;
 
 /**
  *
@@ -36,6 +37,7 @@ public class MainMenuComponent extends Component implements Actionable{
     Texture selecttrack = Resource.getTexture("selecttrack.png");
     int pointerselect = 0;
     int pointer2 = 0;
+    public boolean enabled = false;
     public MainMenuComponent(){
         
         characterselect = new GUIGroup(new Vector2f(0,0));
@@ -83,6 +85,7 @@ public class MainMenuComponent extends Component implements Actionable{
     }
     @Override
     public void onAction(Action action) {
+        if(enabled){
         if(action.type == ActionType.PRESS){
             System.out.println("sdf");
             switch(action.name){
@@ -99,10 +102,14 @@ public class MainMenuComponent extends Component implements Actionable{
                     if(pointer2 == 0){
                         selectplayer.setTexture(selecttrack);
                         pointer2++;
+                    }else{
+                        SimonCart65.inmenu = true;
+                        s.pause();
                     }
                     
                     break;
             }
         }
+    }
     }
 }
