@@ -16,17 +16,22 @@ import static simoncart65.SimonCart65.sc65;
  */
 public class AIFollow extends Component{
     float speed = 10;
-    float speedmult = 10;
+    float speedmult = 0.3f;
     float skill = 10;
     float currentpos = 0;
+    public AICarComponent c;
     
     @Override
     public void update(float delta){
-        if(getPosition().subtract(getParent().getPosition()).length()>skill){
-            speed += delta*10;
-        }else if(getPosition().subtract(getParent().getPosition()).length()<skill){
-            speed -= delta*10;
+        Vector3f diff = getPosition().subtract(c.getPosition());
+        if(diff.length()>skill){
+            speed -= delta*speedmult*diff.length();
+        }else if(getPosition().subtract(c.getPosition()).length()<skill){
+            speed += delta*speedmult*diff.length();
         }
+ 
+       
+        if(speed < 1) speed = 1f;
         currentpos += speed*delta*0.01f;
         Vector2f npos = sc65.mg.path.getPoint(currentpos);
         this.setPositionOffset(new Vector3f(npos.x,-30,npos.y));

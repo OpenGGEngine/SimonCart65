@@ -36,13 +36,14 @@ public class CarComponent extends Component {
         p = new PhysicsComponent();
         p.addCollider(new ColliderGroup(new AABB(10,10,10), new ConvexHull(m.ch)));
         p.getEntity().addForce(f = new Force());
-        
+        f.velLimit = 3f;
         this.attach(p);
         this.attach(mc);
     }
     
     @Override
     public void update(float delta){
+        p.getEntity().velocity = p.getEntity().velocity.subtract(p.getEntity().velocity.multiply(0.8f).multiply(delta));
         if(!tick){
             last = false;
         }

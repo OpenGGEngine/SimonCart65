@@ -117,6 +117,7 @@ public class RaceManagerComponent extends Component implements Actionable{
         
     }
     
+    @Override
     public void update(float delta){
         switch (p.raceposition) {
             case 1:

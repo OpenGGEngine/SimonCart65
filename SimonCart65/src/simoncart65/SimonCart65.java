@@ -78,6 +78,7 @@ public class SimonCart65 extends GGApplication{
         PlayerCarComponent pcc = null;
         try {
             pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            pcc.setPositionOffset(new Vector3f(0,-30,10));
             WorldEngine.getCurrent().attach(pcc); 
         } catch (IOException ex) {
             System.out.println("stop");
@@ -156,6 +157,8 @@ public class SimonCart65 extends GGApplication{
         mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
         try{
             AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+
+            car.setPositionOffset(new Vector3f(0,-30,0));
             WorldEngine.getCurrent().attach(car);
         }catch(Exception e){
             System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
@@ -183,10 +186,6 @@ public class SimonCart65 extends GGApplication{
     @Override
     public void update(float delta) {
         mg.update(delta);
-        full += delta*0.1f;
-        Vector2f v = mg.path.getPoint(full);
-        if(full > 1) full = 0;
-        ceesdasdf.setPositionOffset(new Vector3f(v.x, -30, v.y));
     }
     
 }

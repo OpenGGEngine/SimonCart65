@@ -5,26 +5,35 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.Model;
+import com.opengg.core.model.ModelManager;
+import com.opengg.core.world.components.ModelRenderComponent;
 
 /**
  *
  * @author Javier
  */
 public class AICarComponent extends CarComponent{
-    AIFollow follow = new AIFollow();
+    public AIFollow follow = new AIFollow();
     float fspeed = 10;
     public AICarComponent(Model m) {
         super(m);
         follow = new AIFollow();
-        attach(follow);
+        follow.c = this;
+        WorldEngine.getCurrent().attach(follow);
+        follow.attach(new ModelRenderComponent(ModelManager.getDefaultModel()));
     }
     
     @Override
     public void update(float delta){    
+        super.update(delta);
+
         Vector3f diff = follow.getPosition().subtract(getPosition());
+
         Vector3f nextforce = f.force.reflect(diff);
-        f.force = nextforce.normalize().multiply(fspeed);
+
+        p.getEntity().velocity = diff.normalize().multiply(fspeed);
     }
 }

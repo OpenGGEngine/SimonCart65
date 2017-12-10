@@ -43,9 +43,6 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         super.update(delta);
         this.setRotationOffset(this.getRotation().multiply(new Quaternionf(new Vector3f(0,-control.x,0).multiply(delta).multiply(turnspeed))));
         f.force = getRotation().transform(new Vector3f(control).multiply(forcelength));
-        System.out.println("");
-        System.out.println(this.currentcheck);
-        System.out.println(this.lap);
     }
     
     @Override
