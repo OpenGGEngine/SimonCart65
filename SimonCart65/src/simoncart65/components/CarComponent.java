@@ -22,7 +22,7 @@ public class CarComponent extends Component {
     public boolean last = false;
     public int lap = 0;
     public int currentcheck = 0;
-    public int raceposition;
+    public int raceposition = 0;
     public boolean dtock = false;
     public boolean tick = false;
     

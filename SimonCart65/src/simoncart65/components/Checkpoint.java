@@ -12,6 +12,7 @@ import com.opengg.core.world.components.Zone;
 import com.opengg.core.world.components.triggers.Trigger;
 import com.opengg.core.world.components.triggers.TriggerInfo;
 import com.opengg.core.world.components.triggers.Triggerable;
+import simoncart65.SimonCart65;
 
 /**
  *
@@ -43,6 +44,7 @@ public class Checkpoint extends Component implements Triggerable{
     }
     
     public void updateCar(CarComponent c){
-        OpenGG.asyncExec(()->{c.currentcheck = cid;});
+        if(c.currentcheck == cid-1 || (cid==0 && c.currentcheck == ((SimonCart65)OpenGG.getApp()).mg.checkpoints-1))
+            OpenGG.asyncExec(()->{c.currentcheck = cid;});
     }
 }

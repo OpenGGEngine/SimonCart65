@@ -27,7 +27,9 @@ import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.UserControlComponent;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.TreeSet;
+import simoncart65.Spline2D;
 
 /**
  *
@@ -61,6 +63,10 @@ public class RaceManagerComponent extends Component implements Actionable{
     Sound itemuse;
     
     public int checkpoints = 0;
+    
+    public static LinkedList<Node> nodes = new LinkedList<>();
+    
+    public Spline2D path;
     
     UserControlComponent uc = new UserControlComponent();
     int pointer = 0;
@@ -110,14 +116,19 @@ public class RaceManagerComponent extends Component implements Actionable{
     }
     
     public void update(float delta){
-        if(p.raceposition ==1){
-              g.setText("1st");
-        }else if(p.raceposition ==2){
-             g.setText("2nd");
-        }else if(p.raceposition ==3){
-            g.setText("3rd");
-        }else{
-            g.setText(p.raceposition + "th");
+        switch (p.raceposition) {
+            case 1:
+                g.setText("1st");
+                break;
+            case 2:
+                g.setText("2nd");
+                break;
+            case 3:
+                g.setText("3rd");
+                break;
+            default:
+                g.setText(p.raceposition + "th");
+                break;
         }
         item.setTexture(items[pointer/20].t);
        

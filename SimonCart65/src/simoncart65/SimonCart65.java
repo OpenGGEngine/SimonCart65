@@ -17,6 +17,7 @@ import com.opengg.core.engine.Resource;
 import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.io.ControlType;
 import static com.opengg.core.io.input.keyboard.Key.*;
+import com.opengg.core.math.Vector2f;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
@@ -37,6 +38,8 @@ import simoncart65.components.*;
  */
 public class SimonCart65 extends GGApplication{
     public RaceManagerComponent mg;
+    public ModelRenderComponent ceesdasdf;
+    public static SimonCart65 sc65;
     /**
      * @param args the command line arguments
      */
@@ -47,7 +50,7 @@ public class SimonCart65 extends GGApplication{
         winfo.displaymode = WindowOptions.WINDOWED;
         winfo.name = "Simon Cart 65";
         winfo.vsync = true;
-        SimonCart65 sc65 = new SimonCart65();
+        sc65 = new SimonCart65();
         sc65.applicationID = 69420;
         sc65.applicationName = "Simon Cart 65";
         OpenGG.initialize(sc65, winfo);
@@ -74,13 +77,12 @@ public class SimonCart65 extends GGApplication{
 
         PlayerCarComponent pcc = null;
         try {
-            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\GreenShell\\GreenShell.bmf"));
-            WorldEngine.getCurrent().attach(pcc);
+            pcc = new PlayerCarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            WorldEngine.getCurrent().attach(pcc); 
         } catch (IOException ex) {
             System.out.println("stop");
         }
-        
-        
+        RaceManagerComponent.p = pcc;
         
         WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0,20,200), new Vector3f(1,1,1), 100000, 0))); 
         
@@ -100,25 +102,28 @@ public class SimonCart65 extends GGApplication{
         WorldEngine.getCurrent().attach(check);  
         
         Checkpoint c1 = new Checkpoint(5,1);
-        c1.setPositionOffset(new Vector3f(0,-30,-20));
+        c1.setPositionOffset(new Vector3f(0,-30,-40));
         ModelRenderComponent cm1 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm1.setPositionOffset(c1.getPosition());
         WorldEngine.getCurrent().attach(c1);  
         WorldEngine.getCurrent().attach(cm1); 
         
         Checkpoint c2 = new Checkpoint(5,2);
-        c2.setPositionOffset(new Vector3f(-20,-30,-20));
+        c2.setPositionOffset(new Vector3f(-40,-30,-40));
         ModelRenderComponent cm2 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm2.setPositionOffset(c2.getPosition());
         WorldEngine.getCurrent().attach(c2);  
         WorldEngine.getCurrent().attach(cm2); 
         
         Checkpoint c3 = new Checkpoint(5,3);
-        c3.setPositionOffset(new Vector3f(-20,-30,0));
+        c3.setPositionOffset(new Vector3f(-40,-30,0));
         ModelRenderComponent cm3 = new ModelRenderComponent(ModelManager.getDefaultModel());
         cm3.setPositionOffset(c3.getPosition());
         WorldEngine.getCurrent().attach(c3);  
         WorldEngine.getCurrent().attach(cm3); 
+        
+        ceesdasdf = new ModelRenderComponent(ModelManager.getDefaultModel());
+        WorldEngine.getCurrent().attach(ceesdasdf);
         
         BindController.addBind(ControlType.KEYBOARD, "forward", KEY_W);
         BindController.addBind(ControlType.KEYBOARD, "backward", KEY_S);
@@ -136,9 +141,7 @@ public class SimonCart65 extends GGApplication{
         try {
             mg = new RaceManagerComponent();
             mg.checkpoints = 4;
-        } catch (IOException ex) {
-            
-        }
+        } catch (IOException ex) {}
         RaceManagerComponent.p =pcc;
         RenderEngine.setProjectionData(ProjectionData.getPerspective(100, 0.2f, 3000f));
         RenderEngine.setSkybox(new Skybox(Texture.getCubemap(
@@ -148,16 +151,42 @@ public class SimonCart65 extends GGApplication{
                 Resource.getTexturePath("skybox\\majestic_dn.png"),
                 Resource.getTexturePath("skybox\\majestic_rt.png"),
                 Resource.getTexturePath("skybox\\majestic_lf.png")), 1500f));
+        
+        generateNodesFromCheckpoints();
+        mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
+        try{
+            AICarComponent car = new AICarComponent(ModelLoader.loadNewModel("resources\\models\\banana\\Banana.bmf"));
+            WorldEngine.getCurrent().attach(car);
+        }catch(Exception e){
+            System.out.println("fajiolksd iolpkh pihnm,ukl;pj./");
+        }
+        
     }
-
+    
+    public void generateNodesFromCheckpoints(){
+        int s = 0;
+        for(Component c : WorldEngine.getCurrent().getAll()){
+            if(c instanceof Checkpoint){
+                Node n = new Node(Integer.toString(s), WorldEngine.getCurrent().getAll().indexOf(c) == WorldEngine.getCurrent().getAll().size() ? Integer.toString(0) :Integer.toString( s-1));
+                n.setPositionOffset(c.getPosition());
+                WorldEngine.getCurrent().attach(n);
+                RaceManagerComponent.nodes.add(n);
+            }
+        }
+    }
+    
     @Override
     public void render() {
 
     }
-
+    float full = 0;
     @Override
     public void update(float delta) {
         mg.update(delta);
+        full += delta*0.1f;
+        Vector2f v = mg.path.getPoint(full);
+        if(full > 1) full = 0;
+        ceesdasdf.setPositionOffset(new Vector3f(v.x, -30, v.y));
     }
     
 }
