@@ -22,6 +22,8 @@ import com.opengg.core.world.components.UserControlComponent;
  * @author Warren
  */
 public class PlayerCarComponent extends CarComponent implements Actionable{
+    
+   
     Vector3fm control = new Vector3fm();
     Vector3fm controlrot = new Vector3fm();
     UserControlComponent uc = new UserControlComponent();
@@ -37,6 +39,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         c.setPositionOffset(new Vector3f(0,5,10));
         c.use();
         this.attach(c);
+        this.charge = 0;
     }
 
     @Override
@@ -51,6 +54,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
+                    this.setPositionOffset(this.getPosition().add(new Vector3f(0,5,0)));
                     if(this.currentitem != null){
                     ItemComponent im = new ItemComponent(this.currentitem);
                     if(currentitem instanceof ShellItem){

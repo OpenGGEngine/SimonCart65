@@ -14,6 +14,7 @@ import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.physics.CollisionComponent;
 import com.opengg.core.world.components.physics.PhysicsComponent;
+import java.util.Iterator;
 
 /**
  *
@@ -23,9 +24,10 @@ public class ItemComponent extends Component{
     public Item item;
     public PhysicsComponent pc = new PhysicsComponent();
     ModelRenderComponent m;
+    
+    int charge = 30;
     public ItemComponent(Item item){
-        
-      
+   
         this.item = item;
         this.m = new ModelRenderComponent(item.display);
         this.attach(m);
@@ -41,6 +43,32 @@ public class ItemComponent extends Component{
 //        }
           
           m.setScaleOffset(item.scale);
+    }
+    
+    public void update(float delta){
+        Iterator<CarComponent> cp = RaceManagerComponent.racers.iterator();
+        CarComponent top = null;
+        float force = Float.NEGATIVE_INFINITY;
+        float distance1 = 1;
+        while(cp.hasNext()){
+            CarComponent temp1 = cp.next();
+            
+            float distance = Vector3f.getDistance(temp1.getPosition(),this.getPosition());
+            
+            float temp = (this.charge * temp1.charge * 0.001f)/ (distance *distance);
+            
+            if(temp>force){
+                force = temp;
+                top = temp1;
+                distance1 = distance;
+            }
+            
+        }
+        System.out.println(force);
+       
+       Vector3f ds =  ((top.getPosition().subtract(this.getPosition())).multiply(10/distance1));
+         pc.getEntity().velocity = pc.getEntity().velocity.add(ds);
+        System.out.println(this.pc.getEntity().velocity.toString());
     }
    
     

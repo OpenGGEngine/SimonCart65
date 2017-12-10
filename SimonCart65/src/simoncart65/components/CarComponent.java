@@ -26,6 +26,7 @@ public class CarComponent extends Component implements Comparable{
     public int raceposition = 0;
     public boolean dtock = false;
     public boolean tick = false;
+    public int charge;
     
     public Item currentitem = null;
     public ModelRenderComponent mc;
