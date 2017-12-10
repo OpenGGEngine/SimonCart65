@@ -42,7 +42,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     public static TreeSet<CarComponent> racers = new TreeSet<>();
     
     static Model banana;
-    
+    public boolean enabled = false;
     public static PlayerCarComponent p;
     public static Item[] items = new Item[]{new ShellItem(Resource.getTexture("shell.png"),"C:\\res\\GreenShell\\GreenShell.bmf")
     ,new Item(Resource.getTexture("fakebox.png"),"C:\\res\\banana\\banana.bmf", new Vector3f(0.3f)),new BananaItem(Resource.getTexture("banana.png"),"C:\\res\\banana\\banana.bmf"),new MushroomItem(Resource.getTexture("mushroom.png"),"C:\\res\\banana\\banana.bmf")};
@@ -60,8 +60,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     GUIText g = new GUIText(new Text("1st" ,new Vector2f(), 3.2f, 0.5f, false),font,new Vector2f(0.04f,-0.05f));
     
      GUIText lapcounter = new GUIText(new Text("1/3 Lap" ,new Vector2f(), 1.2f, 0.5f, false),font,new Vector2f(0.8f,-0.05f));
-    
-    Sound s;
+   
     Sound itemuse;
     
     public int checkpoints = 0;
@@ -69,6 +68,7 @@ public class RaceManagerComponent extends Component implements Actionable{
     public static LinkedList<Node> nodes = new LinkedList<>();
     
     public Spline2D path;
+   Sound s;
     
     UserControlComponent uc = new UserControlComponent();
     int pointer = 0;
@@ -95,7 +95,8 @@ public class RaceManagerComponent extends Component implements Actionable{
                    tp.setLayer(-1);
                    
                      frp.setLayer(-1);
-                     
+                 
+                    
             sidebar = new GUIGroup(new Vector2f(0,0));
             sidebar.addItem("first", first);
              sidebar.addItem("second", second);
@@ -112,8 +113,12 @@ public class RaceManagerComponent extends Component implements Actionable{
         GUI.root.addItem("sidebar", sidebar);
         GUI.root.addItem("item", item);
         
+        itemholder.enabled = false;
+        sidebar.enabled = false;
+        item.enabled = false;
         BindController.addController(uc);
         this.attach(uc);
+    
         
     }
     
@@ -159,6 +164,7 @@ public class RaceManagerComponent extends Component implements Actionable{
 
     @Override
     public void onAction(Action action) {
+        if(enabled){
         if(action.type == ActionType.PRESS){
             switch(action.name){
                 case "useitem":
@@ -174,6 +180,7 @@ public class RaceManagerComponent extends Component implements Actionable{
                     }
                     break;
             }
+        }
         }
     }
 

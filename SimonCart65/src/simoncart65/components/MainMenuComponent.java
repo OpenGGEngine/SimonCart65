@@ -5,6 +5,7 @@
  */
 package simoncart65.components;
 
+import com.opengg.core.audio.Sound;
 import com.opengg.core.engine.BindController;
 import com.opengg.core.engine.Resource;
 import com.opengg.core.gui.GUI;
@@ -24,6 +25,8 @@ import com.opengg.core.world.components.UserControlComponent;
  */
 public class MainMenuComponent extends Component implements Actionable{
     
+     Sound s;
+     
     GUITexture highlighter;
     GUITexture stalin,simon,kingbomb,barry,counterterror,beaver,selectplayer;
     
@@ -41,14 +44,14 @@ public class MainMenuComponent extends Component implements Actionable{
         stalin = new GUITexture(Resource.getTexture("stalin.png"),new Vector2f(-0.8f,0f),new Vector2f(0.3f,0.39f));
         simon = new GUITexture(Resource.getTexture("simon.png"),new Vector2f(-0.2f,0f),new Vector2f(0.3f,0.39f));
         
-        kingbomb = new GUITexture(Resource.getTexture("simon.png"),new Vector2f(0.4f,0f),new Vector2f(0.30f,0.39f));
+        kingbomb = new GUITexture(Resource.getTexture("bomb.png"),new Vector2f(0.4f,0f),new Vector2f(0.30f,0.39f));
         barry = new GUITexture(Resource.getTexture("benson.png"),new Vector2f(0.4f,-0.65f),new Vector2f(0.30f,0.39f));
         
         counterterror = new GUITexture(Resource.getTexture("simon.png"),new Vector2f(-0.8f,-0.65f),new Vector2f(0.30f,0.39f));
         beaver = new GUITexture(Resource.getTexture("beaver.png"),new Vector2f(-0.2f,-0.65f),new Vector2f(0.30f,0.39f));
         
-        selectplayer = new GUITexture(Resource.getTexture("selectplayer.png"),new Vector2f(-0.5f,0.5f),new Vector2f(1.2f,0.39f));
-        
+        selectplayer = new GUITexture(Resource.getTexture("selectplayer.png"),new Vector2f(-0.5f,0.5f),new Vector2f(1.05f,0.39f));
+        s =new Sound(Resource.getSoundData("menu.ogg"));
         
         stalin.setLayer(-1f);
         simon.setLayer(-1f);
@@ -69,6 +72,7 @@ public class MainMenuComponent extends Component implements Actionable{
         characterselect.enabled = true;
         BindController.addController(uc);
         this.attach(uc);
+        s.play();
      //   GUI.root.getItem("sd")
     }
     public void update(float delta){
