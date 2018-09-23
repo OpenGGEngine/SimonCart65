@@ -6,21 +6,21 @@
 package simoncart65.components;
 
 import com.opengg.core.engine.OpenGG;
-import com.opengg.core.engine.WorldEngine;
-import com.opengg.core.model.ModelLoader;
 import com.opengg.core.physics.collision.AABB;
 import com.opengg.core.util.GGInputStream;
 import com.opengg.core.util.GGOutputStream;
+import com.opengg.core.world.WorldEngine;
 import com.opengg.core.world.components.Component;
-import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.Zone;
 import com.opengg.core.world.components.triggers.Trigger;
 import com.opengg.core.world.components.triggers.TriggerInfo;
 import com.opengg.core.world.components.triggers.Triggerable;
+import simoncart65.SimonCart65;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import simoncart65.SimonCart65;
+
 import static simoncart65.SimonCart65.sc65;
 
 /**

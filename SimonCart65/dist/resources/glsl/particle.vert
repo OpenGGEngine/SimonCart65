@@ -1,4 +1,6 @@
-#version 410 core
+@version 420 
+
+
 
 in vec2 texcoord;
 in vec3 normal;
@@ -25,7 +27,9 @@ uniform int mode;
 uniform float divAmount;
 uniform vec3 camera;
 
-void main() {
+
+
+main() {
     textureCoord = texcoord;
 	norm = normal;
 

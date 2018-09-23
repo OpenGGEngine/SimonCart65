@@ -6,32 +6,27 @@
 package simoncart65.components;
 
 import com.opengg.core.audio.Sound;
-import com.opengg.core.audio.SoundData;
-import com.opengg.core.engine.BindController;
 import com.opengg.core.engine.Resource;
-import com.opengg.core.engine.WorldEngine;
-import com.opengg.core.gui.GUI;
+import com.opengg.core.gui.GUIController;
 import com.opengg.core.gui.GUIGroup;
 import com.opengg.core.gui.GUIText;
 import com.opengg.core.gui.GUITexture;
 import com.opengg.core.math.Vector2f;
 import com.opengg.core.math.Vector3f;
+import com.opengg.core.math.util.Spline2D;
 import com.opengg.core.model.Model;
-import com.opengg.core.model.ModelLoader;
-import com.opengg.core.render.Text;
+import com.opengg.core.render.text.Text;
+import com.opengg.core.render.text.impl.GGFont;
 import com.opengg.core.render.texture.Texture;
-import com.opengg.core.render.texture.TextureManager;
-import com.opengg.core.render.texture.text.GGFont;
 import com.opengg.core.world.Action;
 import com.opengg.core.world.ActionType;
 import com.opengg.core.world.Actionable;
 import com.opengg.core.world.components.Component;
-import com.opengg.core.world.components.UserControlComponent;
+import com.opengg.core.world.components.PlayerComponent;
+
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.TreeSet;
-import simoncart65.Spline2D;
 
 /**
  *
@@ -57,10 +52,10 @@ public class RaceManagerComponent extends Component implements Actionable {
     GUITexture first, second, third, fourth, fp, sp, tp, frp;
 
     GGFont font = Resource.getFont("test", "test.png");
-    GUIText g = new GUIText(new Text("1st", new Vector2f(), 3.2f, 0.5f, false), font, new Vector2f(0.04f, -0.05f));
-    GUIText spedometer = new GUIText(new Text("Quickness", new Vector2f(), 0.9f, 0.5f, false), font, new Vector2f(0.8f, -0.8f));
+    GUIText g = new GUIText(Text.from("1st").size(0.5f), font, new Vector2f(0.04f, -0.05f));
+    GUIText spedometer = new GUIText(Text.from("Quickness").size(0.5f), font, new Vector2f(0.8f, -0.8f));
 
-    GUIText lapcounter = new GUIText(new Text("1/3 Lap", new Vector2f(), 1.2f, 0.5f, false), font, new Vector2f(0.8f, -0.05f));
+    GUIText lapcounter = new GUIText(Text.from("1/3 Lap").size(0.5f), font, new Vector2f(0.8f, -0.05f));
 
     Sound itemuse;
 
@@ -71,7 +66,7 @@ public class RaceManagerComponent extends Component implements Actionable {
     public Spline2D path;
     static Sound s;
 
-    UserControlComponent uc = new UserControlComponent();
+    PlayerComponent uc = new PlayerComponent();
     static int pointer = 0;
     static int pointer2 = 0;
 
@@ -111,23 +106,22 @@ public class RaceManagerComponent extends Component implements Actionable {
         sidebar.addItem("lapcounter", lapcounter);
         sidebar.addItem("spedometer", spedometer);
         item.setLayer(-1f);
-        GUI.root.addItem("itemholder", itemholder);
-        GUI.root.addItem("sidebar", sidebar);
-        GUI.root.addItem("item", item);
+        GUIController.getDefault().getRoot().addItem("itemholder", itemholder);
+        GUIController.getDefault().getRoot().addItem("sidebar", sidebar);
+        GUIController.getDefault().getRoot().addItem("item", item);
 
 //        itemholder.enabled = false;
 //        sidebar.enabled = false;
 //        item.enabled = false;
-        BindController.addController(uc);
         this.attach(uc);
-
+        uc.use();
     }
 
     @Override
     public void update(float delta) {
 
         racers = new TreeSet<>(racers);
-        ((GUIText) sidebar.getItem("spedometer")).setText("Quickness: \n" + (int) Math.abs(p.p.getEntity().velocity.x()) + " speeds");
+        ((GUIText) sidebar.getItem("spedometer")).setText("Quickness: \n" + (int) Math.abs(p.p.getEntity().velocity.x) + " speeds");
 
         p.raceposition = racers.tailSet(p).size();
         //System.out.println(racers.size());

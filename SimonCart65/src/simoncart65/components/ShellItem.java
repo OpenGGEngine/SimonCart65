@@ -5,7 +5,6 @@
  */
 package simoncart65.components;
 
-import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.render.texture.Texture;
 

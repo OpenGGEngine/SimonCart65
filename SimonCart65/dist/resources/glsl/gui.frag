@@ -1,4 +1,5 @@
-#version 410 core
+@version 4.2
+
 
 layout(location = 0) out vec4 fcolor;
 
@@ -11,6 +12,7 @@ in vertexData{
 
 uniform sampler2D Kd;
 uniform int  text;
+
 
 vec4 getTex(sampler2D tname){
     if(text == 1){
@@ -25,8 +27,9 @@ vec4 getTex(sampler2D tname){
 	
     return texture(tname, textureCoord);
 }
-void main() {   
+main() {   
     fcolor = getTex(Kd);
-	if(fcolor.a < 0.1f)
-		discard;
+    //fcolor = vec4(fcolor.a);
+	//if(fcolor.a < 0.1f)
+	//	discard;
 }

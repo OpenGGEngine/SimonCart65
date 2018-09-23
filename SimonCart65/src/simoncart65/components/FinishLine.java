@@ -7,7 +7,6 @@ package simoncart65.components;
 
 import com.opengg.core.engine.OpenGG;
 import com.opengg.core.engine.Resource;
-import com.opengg.core.model.ModelLoader;
 import com.opengg.core.model.ModelManager;
 import com.opengg.core.util.GGInputStream;
 import com.opengg.core.util.GGOutputStream;
@@ -16,8 +15,9 @@ import com.opengg.core.world.components.ModelRenderComponent;
 import com.opengg.core.world.components.triggers.Trigger;
 import com.opengg.core.world.components.triggers.TriggerInfo;
 import com.opengg.core.world.components.triggers.Triggerable;
-import java.io.IOException;
 import simoncart65.SimonCart65;
+
+import java.io.IOException;
 
 /**
  *
@@ -61,7 +61,7 @@ public class FinishLine extends Component implements Triggerable{
     @Override
     public void deserialize(GGInputStream in) throws IOException{
         super.deserialize(in);
-        mrp = new ModelRenderComponent(ModelLoader.loadModel(in.readString()));
+        mrp = new ModelRenderComponent(Resource.getModel(in.readString()));
         mrp.setSerializable(false);
         this.attach(mrp);
     }

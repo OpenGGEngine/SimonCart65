@@ -7,6 +7,7 @@ package simoncart65.components;
 
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.viewmodel.Element;
+import com.opengg.core.world.components.viewmodel.ForComponent;
 import com.opengg.core.world.components.viewmodel.Initializer;
 import com.opengg.core.world.components.viewmodel.ViewModel;
 
@@ -14,6 +15,7 @@ import com.opengg.core.world.components.viewmodel.ViewModel;
  *
  * @author Javier
  */
+@ForComponent(FinishLine.class)
 public class FinishLineViewModel extends ViewModel{
 
     @Override

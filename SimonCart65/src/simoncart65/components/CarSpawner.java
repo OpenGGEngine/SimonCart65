@@ -5,11 +5,12 @@
  */
 package simoncart65.components;
 
-import com.opengg.core.engine.WorldEngine;
+import com.opengg.core.engine.Resource;
 import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelLoader;
 import com.opengg.core.util.GGInputStream;
 import com.opengg.core.util.GGOutputStream;
+import com.opengg.core.world.WorldEngine;
 import com.opengg.core.world.components.Component;
 import java.io.IOException;
 import static simoncart65.SimonCart65.sc65;
@@ -42,7 +43,7 @@ public class CarSpawner extends Component{
     @Override
     public void deserialize(GGInputStream in) throws IOException{
         super.deserialize(in);
-        model = ModelLoader.loadModel(in.readString());
+        model = Resource.getModel(in.readString());
         user = in.readBoolean();
     }
     

@@ -9,6 +9,7 @@ import com.opengg.core.model.Model;
 import com.opengg.core.model.ModelManager;
 import com.opengg.core.world.components.Component;
 import com.opengg.core.world.components.viewmodel.Element;
+import com.opengg.core.world.components.viewmodel.ForComponent;
 import com.opengg.core.world.components.viewmodel.Initializer;
 import com.opengg.core.world.components.viewmodel.ViewModel;
 
@@ -16,19 +17,20 @@ import com.opengg.core.world.components.viewmodel.ViewModel;
  *
  * @author Javier
  */
+@ForComponent(CarSpawner.class)
 public class CarSpawnerViewModel extends ViewModel{
 
     @Override
     public void createMainViewModel() {
         Element model = new Element();
-        model.type = Element.MODEL;
+        model.type = Element.Type.MODEL;
         model.internalname = "model";
         model.name = "Car Model";
         model.autoupdate = true;
         model.value = ModelManager.getDefaultModel();
         
         Element user = new Element();
-        user.type = Element.BOOLEAN;
+        user.type = Element.Type.BOOLEAN;
         user.internalname = "user";
         user.name = "Is user controlled";
         user.autoupdate = true;
@@ -41,7 +43,7 @@ public class CarSpawnerViewModel extends ViewModel{
     @Override
     public Initializer getInitializer(Initializer init) {
         Element model = new Element();
-        model.type = Element.MODEL;
+        model.type = Element.Type.MODEL;
         model.internalname = "model";
         model.name = "Car Model";
         model.autoupdate = true;

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SimonCart65">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SimonCart65/dist/SimonCart65.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

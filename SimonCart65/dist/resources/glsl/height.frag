@@ -1,5 +1,5 @@
-#version 410 core
-#define LIGHTNUM 100
+@version 420 
+@glsl define LIGHTNUM 100
 
 
 layout(location = 0) out vec4 fcolor;
@@ -31,6 +31,7 @@ uniform sampler2DArray Kd;
 uniform sampler2D Ka;
 uniform samplerCube cubemap;
 
+
 float trans;
 float specpow;
 float visibility = 1.0f;
@@ -43,7 +44,8 @@ vec3 diffuse;
 vec4 color;
 vec4 finalcolor;
 
-void genPhong(){
+
+genPhong(){
     vec3 positionRelativeToCam = (view * model * vec4(pos.xyz, 1.0f)).xyz;
     
     vec3 posCameraspace = (positionRelativeToCam);
@@ -90,7 +92,7 @@ vec4 getTex(sampler2D tname){
     return texture(tname, textureCoord);
 }
 
-void main() {  
+main() {
 	vec4 blendMapColor = getTex(Ka);
     vec2 tiledMapEditor = textureCoord * 120;
     vec4 wcolor = texture(Kd, vec3(tiledMapEditor,0));

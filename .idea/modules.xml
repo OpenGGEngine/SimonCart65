@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SimonCart65/SimonCart65.iml" filepath="$PROJECT_DIR$/SimonCart65/SimonCart65.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/WorldEditor.iml" filepath="$PROJECT_DIR$/../WorldEditor/WorldEditor/WorldEditor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.base/com.opengg.base.iml" filepath="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.base/com.opengg.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.console/com.opengg.console.iml" filepath="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.console/com.opengg.console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/com.opengg.core.iml" filepath="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/com.opengg.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.math/com.opengg.math.iml" filepath="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.math/com.opengg.math.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.system/com.opengg.system.iml" filepath="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.system/com.opengg.system.iml" />
+    </modules>
+  </component>
+</project>

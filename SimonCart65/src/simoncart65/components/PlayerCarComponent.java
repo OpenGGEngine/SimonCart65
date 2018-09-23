@@ -5,8 +5,6 @@
  */
 package simoncart65.components;
 
-import com.opengg.core.engine.BindController;
-import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.math.Quaternionf;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.math.Vector3fm;
@@ -14,8 +12,9 @@ import com.opengg.core.model.Model;
 import com.opengg.core.world.Action;
 import com.opengg.core.world.ActionType;
 import com.opengg.core.world.Actionable;
+import com.opengg.core.world.WorldEngine;
 import com.opengg.core.world.components.CameraComponent;
-import com.opengg.core.world.components.UserControlComponent;
+import com.opengg.core.world.components.PlayerComponent;
 
 /**
  *
@@ -26,7 +25,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
    
     Vector3fm control = new Vector3fm();
     Vector3fm controlrot = new Vector3fm();
-    UserControlComponent uc = new UserControlComponent();
+    PlayerComponent uc = new PlayerComponent();
     CameraComponent c;
     float forcelength = 20;
     float turnspeed = 40;
@@ -36,7 +35,7 @@ public class PlayerCarComponent extends CarComponent implements Actionable{
     public PlayerCarComponent(Model m) {
         super(m);
         this.attach(uc);
-        BindController.addController(uc);
+        uc.use();
         c = new CameraComponent();
         c.setPositionOffset(new Vector3f(0,5,10));
         c.use();

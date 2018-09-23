@@ -5,11 +5,9 @@
  */
 package simoncart65.components;
 
-import com.opengg.core.engine.WorldEngine;
 import com.opengg.core.math.Vector3f;
 import com.opengg.core.model.Model;
-import com.opengg.core.model.ModelManager;
-import com.opengg.core.world.components.ModelRenderComponent;
+import com.opengg.core.world.WorldEngine;
 
 /**
  *

@@ -1,4 +1,5 @@
-#version 410 core
+@version 4.2
+@glsl define MAX_JOINTS 100
 
 in vec3 normal;
 in vec4 weights;
@@ -18,9 +19,6 @@ out vertexData{
 	vec3 norm;
 };
 
- const int MAX_WEIGHTS = 4;
- const int MAX_JOINTS = 100;
-
 uniform mat4 model;
 uniform mat4 jointsMatrix[MAX_JOINTS];
 uniform mat4 view;
@@ -31,6 +29,10 @@ uniform mat4 shmvp;
 uniform int mode;
 uniform int inst;
 uniform float divAmount;
+
+
+const int MAX_WEIGHTS = 4;
+
 
 void main() {
 

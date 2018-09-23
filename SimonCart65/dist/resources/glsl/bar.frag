@@ -1,17 +1,18 @@
-#version 410 core
+@version 4.2
 
 layout(location = 0) out vec4 fcolor;
 
 in vertexData{
     
     vec2 textureCoord;
-    vec4 pos;
+    vec3 pos;
     vec3 norm;
 };
 
 uniform sampler2D Kd;
 uniform sampler2D Ka;
 uniform float percent;
+
 
 vec4 getTex(sampler2D tname){
     

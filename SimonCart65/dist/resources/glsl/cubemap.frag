@@ -1,13 +1,6 @@
-#version 410 core
+@version 4.2
+@include stdfrag.ggsl
 
-layout(location = 0) out vec4 fcolor;
-
-in vertexData{
-    
-    vec2 textureCoord;
-    vec4 pos;
-    vec3 norm;
-};
 
 uniform samplerCube cubemap;
 

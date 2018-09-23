@@ -5,23 +5,21 @@
  */
 package simoncart65;
 
+import com.opengg.core.audio.AudioController;
 import com.opengg.core.audio.Soundtrack;
 import com.opengg.core.audio.SoundtrackHandler;
-import com.opengg.core.engine.AudioController;
-import com.opengg.core.engine.BindController;
-import com.opengg.core.engine.GGApplication;
-import com.opengg.core.engine.OpenGG;
-import com.opengg.core.engine.ProjectionData;
-import com.opengg.core.engine.RenderEngine;
-import com.opengg.core.engine.Resource;
-import com.opengg.core.engine.WorldEngine;
+import com.opengg.core.engine.*;
 import com.opengg.core.gui.GUI;
+import com.opengg.core.gui.GUIController;
 import com.opengg.core.io.ControlType;
-import static com.opengg.core.io.input.keyboard.Key.*;
+import com.opengg.core.math.Quaternionf;
+import com.opengg.core.math.Vector2f;
 import com.opengg.core.math.Vector3f;
+import com.opengg.core.math.util.Spline2D;
 import com.opengg.core.model.ModelLoader;
-import com.opengg.core.model.ModelManager;
 import com.opengg.core.physics.collision.ConvexHull;
+import com.opengg.core.render.ProjectionData;
+import com.opengg.core.render.RenderEngine;
 import com.opengg.core.render.light.Light;
 import com.opengg.core.render.texture.Texture;
 import com.opengg.core.render.texture.TextureManager;
@@ -29,12 +27,20 @@ import com.opengg.core.render.window.WindowInfo;
 import com.opengg.core.render.window.WindowOptions;
 import com.opengg.core.world.Skybox;
 import com.opengg.core.world.Terrain;
+import com.opengg.core.world.WorldEngine;
 import com.opengg.core.world.WorldLoader;
-import com.opengg.core.world.components.*;
+import com.opengg.core.world.components.Component;
+import com.opengg.core.world.components.LightComponent;
+import com.opengg.core.world.components.ModelRenderComponent;
+import com.opengg.core.world.components.TerrainComponent;
+import simoncart65.components.*;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import simoncart65.components.*;
+import java.util.stream.Collectors;
+
+import static com.opengg.core.io.input.keyboard.Key.*;
 
 /**
  *
@@ -54,8 +60,8 @@ public class SimonCart65 extends GGApplication {
      */
     public static void main(String[] args) {
         WindowInfo winfo = new WindowInfo();
-        winfo.width = 1920;
-        winfo.height = 1080;
+        winfo.width = 1280;
+        winfo.height = 720;
         winfo.displaymode = WindowOptions.WINDOWED;
         winfo.name = "Simon Cart 65";
         winfo.vsync = true;
@@ -98,7 +104,7 @@ public class SimonCart65 extends GGApplication {
         } catch (IOException ex) {
         }
 
-        WorldEngine.getCurrent().attach(new LightComponent(new Light(new Vector3f(0, 20, 200), new Vector3f(1, 1, 1), 100000, 0)));
+        WorldEngine.getCurrent().attach(new LightComponent(Light.createDirectional(new Quaternionf(new Vector3f(30, -45, 0)), new Vector3f(1,1,1))));
 
         Terrain t = Terrain.generate(Resource.getTextureData("rainbowheight.png"));
 
@@ -169,12 +175,13 @@ public class SimonCart65 extends GGApplication {
 
         
         generateNodesFromCheckpoints(Checkpoint.getOrdered());
-        mg.path = Spline2D.getFromNodes(RaceManagerComponent.nodes);
+        mg.path = new Spline2D(RaceManagerComponent.nodes.stream().map(Component::getPosition).map(v -> new Vector2f(v.x,v.z)).collect(Collectors.toList()));
 
         for(Component c : WorldEngine.getCurrent().getAll()){
-            if(c instanceof CarSpawner)
-                    ((CarSpawner)c).spawn();
-                
+            if(c instanceof CarSpawner){
+                ((CarSpawner)c).spawn();
+                break;
+            }
         }
         
         try{
@@ -217,16 +224,16 @@ RaceManagerComponent.p = pcc;
 
         if (inmenu == false) {
             mm.update(delta);
-            GUI.root.getItem("itemholder").enabled = false;
-            GUI.root.getItem("sidebar").enabled = false;
-            GUI.root.getItem("item").enabled = false;
+            GUIController.getDefault().getRoot().getItem("itemholder").enabled = false;
+            GUIController.getDefault().getRoot().getItem("sidebar").enabled = false;
+            GUIController.getDefault().getRoot().getItem("item").enabled = false;
             mm.enabled = true;
             mg.enabled = false;
         } else {
-            GUI.root.getItem("itemholder").enabled = true;
-            GUI.root.getItem("sidebar").enabled = true;
-         
-            GUI.root.getItem("characterselect").enabled = false;
+            GUIController.getDefault().getRoot().getItem("itemholder").enabled = true;
+            GUIController.getDefault().getRoot().getItem("sidebar").enabled = true;
+
+            GUIController.getDefault().getRoot().getItem("characterselect").enabled = false;
             mg.enabled = true;
             mm.enabled = false;
             mg.update(delta);

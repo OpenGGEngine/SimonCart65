@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Class-Path: lwjgl.jar lwjgl-egl.jar lwjgl-nfd.jar lwjgl-par.jar lwjgl-
+ stb.jar lwjgl-glfw.jar lwjgl-jawt.jar lwjgl-assimp.jar lwjgl-openal.j
+ ar lwjgl-opencl.jar lwjgl-opengl.jar lwjgl-openvr.jar lwjgl-tootle.ja
+ r lwjgl-vulkan.jar lwjgl-xxhash.jar lwjgl-jemalloc.jar lwjgl-remotery
+ .jar lwjgl-rpmalloc.jar lwjglx-debug-1.0.0.jar steamworks4j-1.6.2.jar
+  lwjgl-natives-windows.jar lwjgl-nfd-natives-windows.jar lwjgl-par-na
+ tives-windows.jar lwjgl-stb-natives-windows.jar lwjgl-glfw-natives-wi
+ ndows.jar lwjgl-assimp-natives-windows.jar lwjgl-openal-natives-windo
+ ws.jar lwjgl-opengl-natives-windows.jar lwjgl-openvr-natives-windows.
+ jar lwjgl-tootle-natives-windows.jar lwjgl-xxhash-natives-windows.jar
+  lwjgl-jemalloc-natives-windows.jar lwjgl-remotery-natives-windows.ja
+ r lwjgl-rpmalloc-natives-windows.jar
+Main-Class: simoncart65.SimonCart65
+

@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="SimonCart65:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SimonCart65_jar</output-path>
+    <root id="root">
+      <element id="archive" name="SimonCart65.jar">
+        <element id="module-output" name="SimonCart65" />
+        <element id="module-output" name="com.opengg.console" />
+        <element id="module-output" name="com.opengg.base" />
+        <element id="module-output" name="com.opengg.core" />
+        <element id="module-output" name="com.opengg.system" />
+        <element id="module-output" name="com.opengg.math" />
+      </element>
+      <element id="library" level="application" name="lwjgl" />
+    </root>
+  </artifact>
+</component>

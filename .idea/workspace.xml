@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6329df23-0e7e-43f4-b42f-89b8014f7c89" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Checkpoint.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/Checkpoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FinishLine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SimonCart65.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/SimonCart65.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="185" column="8" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldEditor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="715" column="26" selection-start-line="715" selection-start-column="26" selection-end-line="715" selection-end-column="26" />
+              <folding>
+                <element signature="method#main#0;class#WorldEditor#0" />
+                <element signature="method#initSwing#0;class#WorldEditor#0" />
+                <element signature="method#createWorldSaveChooser#0;class#WorldEditor#0" />
+                <element signature="method#createGamePathChooser#0;class#WorldEditor#0" />
+                <element signature="method#createJarLoadChooser#0;class#WorldEditor#0" />
+                <element signature="method#createWorldLoadChooser#0;class#WorldEditor#0" />
+                <element signature="method#useViewModel#0;class#WorldEditor#0" />
+                <element signature="method#updateAddRegion#0;class#WorldEditor#0" />
+                <element signature="method#createComponentCreatorPanel#0;class#WorldEditor#0" />
+                <element signature="method#refreshComponentList#0;class#WorldEditor#0" />
+                <element signature="method#mystery6#0;class#WorldEditor#0" />
+                <element signature="method#addComponentToTree#0;class#WorldEditor#0" />
+                <element signature="method#createComponent#0;class#WorldEditor#0" />
+                <element signature="method#setupTree#0;class#WorldEditor#0" />
+                <element signature="method#useTreeItem#0;class#WorldEditor#0" />
+                <element signature="method#findById#0;class#WorldEditor#0" />
+                <element signature="method#render#0;class#WorldEditor#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AWTKeyboardHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/input/AWTKeyboardHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenGG.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/engine/OpenGG.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4048">
+              <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>= Element.</find>
+      <find>UserControlComponent</find>
+      <find>, new Vector2f(),</find>
+      <find>useCamera</find>
+      <find>Failed</find>
+      <find>Override</find>
+      <find>clear</find>
+      <find>remove</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>= Element.Type.</replace>
+      <replace>PlayerComponent</replace>
+      <replace>).size(</replace>
+      <replace>useView</replace>
+    </replaceStrings>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../LinkChain/BlockchainService" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../LinkChain/CommonLibraries" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/vr/VRControllerComponent.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/Spline2D.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CarSpawner.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/render/RenderEngine.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/Spline.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/MainMenuComponent.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/AICarComponent.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/Checkpoint.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/PlayerCarComponent.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/RaceManagerComponent.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/render/text/TTF.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/SimonCart65.java" />
+        <option value="$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/assetloader/loader/StaticMeshesLoader.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CarSpawnerViewModel.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CheckpointViewModel.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLineViewModel.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/Deserializer.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/NodeViewModel.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/viewmodel/GenericComponentViewModel.java" />
+        <option value="$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLine.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/viewmodel/ViewModelComponentRegistry.java" />
+        <option value="$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/engine/OpenGG.java" />
+        <option value="$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/window/GGCanvas.java" />
+        <option value="$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/input/AWTKeyboardHandler.java" />
+        <option value="$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimonCart65" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimonCart65" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimonCart65" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simoncart65" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimonCart65" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simoncart65" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WorldEditor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimonCart65" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WorldEditor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="WorldEditor&#9;FILE&#9;file://C:/Users/javst/Documents/Projects/WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java&#10;AWT&#9;PSI&#9;JAVA://com.opengg.ext.awt.AWTExtension&#10;OpenGG&#9;PSI&#9;JAVA://com.opengg.core.engine.OpenGG&#10;freefly&#9;PSI&#9;JAVA://com.opengg.core.world.components.FreeFlyComponent&#10;player&#9;FILE&#9;file://C:/Users/javst/Documents/Projects/OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/PlayerComponent.java&#10;Gener&#9;PSI&#9;JAVA://com.opengg.core.world.components.viewmodel.GenericComponentViewModel&#10;WOrldE&#9;FILE&#9;file://C:/Users/javst/Documents/Projects/WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java&#10;GGCons&#9;PSI&#9;JAVA://com.opengg.core.console.GGConsole&#10;WOrld&#9;FILE&#9;file://C:/Users/javst/Documents/Projects/WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java&#10;ViewModelCom&#9;PSI&#9;JAVA://com.opengg.core.world.components.viewmodel.ViewModelComponentRegistry&#10;simon&#9;FILE&#9;file://C:/Users/javst/Documents/Projects/SimonCart65/SimonCart65/src/simoncart65/SimonCart65.java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WorldEditor/WorldEditor/WorldEditor.iml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.World editor">
+    <configuration name="Run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="simoncart65.SimonCart65" />
+      <module name="SimonCart65" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/SimonCart65/dist" />
+    </configuration>
+    <configuration name="World editor" type="Application" factoryName="Application">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="worldeditor.WorldEditor" />
+      <module name="WorldEditor" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/dist" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Run" />
+      <item itemvalue="Application.World editor" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6329df23-0e7e-43f4-b42f-89b8014f7c89" name="Default" comment="" />
+      <created>1537475383546</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537475383546</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="DB Execution Console" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Docker" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info id="DB Browser" order="2" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32952183" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Regex Tester" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.36070687" />
+      <window_info id="Unicode Browser" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
+      <window_info anchor="bottom" id="JProfiler" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/RaceManagerComponent.java</url>
+          <line>55</line>
+          <properties field="spedometer" class="simoncart65.components.RaceManagerComponent" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/Checkpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/NodeViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/SimonCart65.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3358">
+          <caret line="185" column="8" lean-forward="true" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/assetloader/loader/StaticMeshesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="110" column="10" lean-forward="true" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/viewmodel/ViewModelComponentRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2507">
+          <caret line="125" column="57" selection-start-line="125" selection-start-column="57" selection-end-line="125" selection-end-column="57" />
+          <folding>
+            <element signature="e#5856#5857#0" expanded="true" />
+            <element signature="e#5889#5890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4784">
+          <caret line="255" column="21" lean-forward="true" selection-start-line="255" selection-start-column="21" selection-end-line="255" selection-end-column="21" />
+          <folding>
+            <element signature="method#main#0;class#WorldEditor#0" />
+            <element signature="method#initSwing#0;class#WorldEditor#0" />
+            <element signature="method#createWorldSaveChooser#0;class#WorldEditor#0" />
+            <element signature="method#createGamePathChooser#0;class#WorldEditor#0" />
+            <element signature="method#createJarLoadChooser#0;class#WorldEditor#0" />
+            <element signature="method#createWorldLoadChooser#0;class#WorldEditor#0" />
+            <element signature="method#useViewModel#0;class#WorldEditor#0" />
+            <element signature="method#updateAddRegion#0;class#WorldEditor#0" />
+            <element signature="method#createComponentCreatorPanel#0;class#WorldEditor#0" />
+            <element signature="method#refreshComponentList#0;class#WorldEditor#0" />
+            <element signature="method#mystery6#0;class#WorldEditor#0" />
+            <element signature="method#addComponentToTree#0;class#WorldEditor#0" />
+            <element signature="method#createComponent#0;class#WorldEditor#0" />
+            <element signature="method#setupTree#0;class#WorldEditor#0" />
+            <element signature="method#useTreeItem#0;class#WorldEditor#0" />
+            <element signature="method#findById#0;class#WorldEditor#0" />
+            <element signature="method#render#0;class#WorldEditor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/ShellItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/util/JarClassUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="851">
+          <caret line="51" column="59" lean-forward="true" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/vr/VRControllerComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/Spline2D.java" />
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CarSpawner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/render/RenderEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="404" column="22" selection-start-line="404" selection-start-column="18" selection-end-line="404" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/module-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/Spline.java" />
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/AICarComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/ShellItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/render/shader/ShaderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/render/text/TTF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="57" column="64" lean-forward="true" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/RaceManagerComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="61" column="30" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/PlayerCarComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/engine/Resource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="158" column="25" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CarSpawnerViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/CheckpointViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLineViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="32" column="38" lean-forward="true" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/Checkpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.console/classes/com/opengg/core/console/GGConsole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="87" column="58" lean-forward="true" selection-start-line="87" selection-start-column="58" selection-end-line="87" selection-end-column="58" />
+          <folding>
+            <element signature="e#2591#2592#0" expanded="true" />
+            <element signature="e#2630#2631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.console/classes/com/opengg/core/console/LoggerOutputConsumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/Deserializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/util/JarClassUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="51" column="59" selection-start-line="51" selection-start-column="59" selection-end-line="51" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/NodeViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/viewmodel/GenericComponentViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/FinishLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/assetloader/loader/StaticMeshesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/components/MainMenuComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/viewmodel/ViewModelComponentRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+          <folding>
+            <element signature="e#5856#5857#0" expanded="true" />
+            <element signature="e#5889#5890#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="1307" column="16" selection-start-line="1307" selection-start-column="16" selection-end-line="1307" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/PlayerComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/world/components/FreeFlyComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="57" column="60" lean-forward="true" selection-start-line="55" selection-start-column="8" selection-end-line="57" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/AWTExtension.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="18" column="57" lean-forward="true" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="5674" column="29" selection-start-line="5674" selection-start-column="29" selection-end-line="5674" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../OpenGG-Project/OpenGG Project/src/com.opengg.core/classes/com/opengg/core/engine/OpenGG.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4048">
+          <caret line="214" column="21" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/java/awt/Canvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/window/AWTGLCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
+          <folding>
+            <element signature="e#1678#1679#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/GGView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/input/AWTMouseButtonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SimonCart65/src/simoncart65/SimonCart65.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="185" column="8" selection-start-line="185" selection-start-column="8" selection-end-line="185" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/window/GGCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1403">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/com/opengg/ext/awt/input/AWTKeyboardHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../WorldEditor/WorldEditor/src/worldeditor/WorldEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="715" column="26" selection-start-line="715" selection-start-column="26" selection-end-line="715" selection-end-column="26" />
+          <folding>
+            <element signature="method#main#0;class#WorldEditor#0" />
+            <element signature="method#initSwing#0;class#WorldEditor#0" />
+            <element signature="method#createWorldSaveChooser#0;class#WorldEditor#0" />
+            <element signature="method#createGamePathChooser#0;class#WorldEditor#0" />
+            <element signature="method#createJarLoadChooser#0;class#WorldEditor#0" />
+            <element signature="method#createWorldLoadChooser#0;class#WorldEditor#0" />
+            <element signature="method#useViewModel#0;class#WorldEditor#0" />
+            <element signature="method#updateAddRegion#0;class#WorldEditor#0" />
+            <element signature="method#createComponentCreatorPanel#0;class#WorldEditor#0" />
+            <element signature="method#refreshComponentList#0;class#WorldEditor#0" />
+            <element signature="method#mystery6#0;class#WorldEditor#0" />
+            <element signature="method#addComponentToTree#0;class#WorldEditor#0" />
+            <element signature="method#createComponent#0;class#WorldEditor#0" />
+            <element signature="method#setupTree#0;class#WorldEditor#0" />
+            <element signature="method#useTreeItem#0;class#WorldEditor#0" />
+            <element signature="method#findById#0;class#WorldEditor#0" />
+            <element signature="method#render#0;class#WorldEditor#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>SimonCart65:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>lwjgl</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>JDK 10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>WorldEditor</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>JDK 10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>SimonCart65</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

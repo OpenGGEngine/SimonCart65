@@ -6,9 +6,8 @@
 package simoncart65.components;
 
 import com.opengg.core.audio.Sound;
-import com.opengg.core.engine.BindController;
 import com.opengg.core.engine.Resource;
-import com.opengg.core.gui.GUI;
+import com.opengg.core.gui.GUIController;
 import com.opengg.core.gui.GUIGroup;
 import com.opengg.core.gui.GUITexture;
 import com.opengg.core.math.Vector2f;
@@ -17,7 +16,7 @@ import com.opengg.core.world.Action;
 import com.opengg.core.world.ActionType;
 import com.opengg.core.world.Actionable;
 import com.opengg.core.world.components.Component;
-import com.opengg.core.world.components.UserControlComponent;
+import com.opengg.core.world.components.PlayerComponent;
 import simoncart65.SimonCart65;
 
 /**
@@ -32,8 +31,8 @@ public class MainMenuComponent extends Component implements Actionable{
     GUITexture stalin,simon,kingbomb,barry,counterterror,beaver,selectplayer;
     
     GUIGroup characterselect;
-    UserControlComponent uc = new UserControlComponent();
-    
+    PlayerComponent uc = new PlayerComponent();
+
     Texture selecttrack = Resource.getTexture("selecttrack.png");
     int pointerselect = 0;
     int pointer2 = 0;
@@ -69,10 +68,10 @@ public class MainMenuComponent extends Component implements Actionable{
         characterselect.addItem("beaver", beaver);
         characterselect.addItem("counterterror", counterterror);
         characterselect.addItem("selectplayer", selectplayer);
-        
-        GUI.root.addItem("characterselect", characterselect);
+
+        GUIController.getDefault().getRoot().addItem("characterselect", characterselect);
         characterselect.enabled = true;
-        BindController.addController(uc);
+        uc.use();
         this.attach(uc);
         s.play();
      //   GUI.root.getItem("sd")
